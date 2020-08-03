@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="2"
+  Comment="HyperStore Quick Start Software-Only"
+  Type="PDF"
+  Destinations=""
+  MasterToc="/Project/TOCs/QuickStartPDF.fltoc"
+  ConditionTagExpression="include[Cloudian.QuickStartBinOnly] exclude[Cloudian.HelpEndUserOnly or Cloudian.HelpGroupAdminOnly or Cloudian.HelpSysAdminOnly or Cloudian.PrintOnly or Cloudian.QuickStartApplianceOnly or Cloudian.QuickStartAwsMmsOnly or Cloudian.QuickStartIsoOnly or Cloudian.ScreenOnly] "
+  InjectEmptyPages="true"
+  PatchHeadingLevels="false"
+  OutputFile="HyperIQ-Quick-Start"
+  InjectBookHeadings="false">
+  <PrintedOutput
+    CollapseMargins="true"
+    GenerateTOCProxy="false"
+    GenerateIndexProxy="false"
+    GenerateGlossaryProxy="false"
+    ExpandingTextConversion="expand"
+    PopupConversion="remove-body"
+    PreserveTrackedChanges="false" />
+  <Destinations> </Destinations>
+  <DocumentProperties
+    Title="Cloudian HyperStore Quick Start for Software-Only Users"
+    Author="Cloudian, Inc." />
+  <PDF
+    ShowUsedBookmarks="false"
+    CollapsedBookmarks="true"
+    InitialMagnification="100"
+    PageMode="UseNone" />
+</CatapultTarget>

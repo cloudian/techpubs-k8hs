@@ -1,0 +1,1394 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1"
+  conditions="">
+  <TocEntry
+    Title="Installing HyperStore"
+    Link="/Content/Installation/InstallationOverview.htm"
+    BreakType="none"
+    StartSection="false"
+    PageNumberReset="continue"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="Preparing Your Environment"
+      Link="/Content/Installation/EnvironmentPreparation/EnvironmentOverview.htm">
+      <TocEntry
+        Title="DNS Set-Up"
+        Link="/Content/Installation/EnvironmentPreparation/DnsSetup.htm" />
+      <TocEntry
+        Title="Load Balancing"
+        Link="/Content/Installation/EnvironmentPreparation/LoadBalancing.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Preparing Your Nodes"
+      Link="/Content/Installation/NodePreparation/NodePrepOverview.htm">
+      <TocEntry
+        Title="Host Hardware and OS Requirements"
+        Link="/Content/Installation/NodePreparation/HardwareOs.htm" />
+      <TocEntry
+        Title="Installing HyperStore Prerequisites"
+        Link="/Content/Installation/NodePreparation/Prerequisites.htm" />
+      <TocEntry
+        Title="Configuring Network Interfaces, Time Zone, and Data Disks"
+        Link="/Content/Installation/NodePreparation/NicsDisks.htm" />
+      <TocEntry
+        Title="Running the Pre-Install Checks Script"
+        Link="/Content/Installation/NodePreparation/PreInstallCheck.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="Installing a New HyperStore System"
+      Link="/Content/Installation/InstallingHyperStoreSoftware.htm" />
+    <TocEntry
+      Title="Installation Reference"
+      Link="/Content/Installation/Reference/InstallReferenceOverview.htm">
+      <TocEntry
+        Title="Installation Troubleshooting"
+        Link="/Content/Installation/Reference/InstallationTroubleshooting.htm" />
+      <TocEntry
+        Title="HyperStore Listening Ports"
+        Link="/Content/Installation/Reference/Ports.htm" />
+      <TocEntry
+        Title="Outbound Internet Access"
+        Link="/Content/Installation/Reference/OutboundInternet.htm" />
+      <TocEntry
+        Title="File System Requirements"
+        Link="/Content/Installation/Reference/FileSystemRequirements.htm" />
+      <TocEntry
+        Title="Cluster Survey File (survey.csv)"
+        Link="/Content/Installation/Reference/SurveyFile.htm" />
+      <TocEntry
+        Title="cloudianInstall.sh Command Line Options"
+        Link="/Content/Installation/Reference/InstallerSyntax.htm" />
+      <TocEntry
+        Title="system_setup.sh Command Line Options"
+        Link="/Content/Installation/Reference/SystemSetupSyntax.htm" />
+      <TocEntry
+        Title="Installer Advanced Configuration Options"
+        Link="/Content/Installation/Reference/AdvancedInstallationConfig.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="What's New in HyperStore 7.2"
+    Link="/Content/Introduction/WhatsNew.htm"
+    StartSection="false" />
+  <TocEntry
+    Title="1. Introduction to HyperStore"
+    Link="/Content/Introduction/Welcome.htm"
+    StartSection="false"
+    BreakType="none"
+    PageNumberReset="continue"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue">
+    <TocEntry
+      Title="1.1 What's New in HyperStore 7.2"
+      Link="/Content/Introduction/WhatsNew.htm"></TocEntry>
+    <TocEntry
+      Title="1.2 HyperStore Documentation"
+      Link="/Content/Introduction/Doc.htm" />
+    <TocEntry
+      Title="1.3 HyperStore Overview"
+      Link="/Content/Introduction/Overview.htm"
+      BreakType="none"
+      StartSection="false"
+      PageNumberReset="continue"
+      SectionNumberReset="continue"
+      VolumeNumberReset="same"
+      ChapterNumberReset="continue" />
+    <TocEntry
+      Title="1.4 Licensing and Auditing"
+      Link="/Content/Introduction/Licensing.htm" />
+    <TocEntry
+      Title="1.5 HyperStore Services"
+      Link="/Content/Introduction/HyperStoreServices/ServicesOverview.htm">
+      <TocEntry
+        Title="1.5.1 S3 Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesS3.htm" />
+      <TocEntry
+        Title="1.5.2 HyperStore Service and the HSFS"
+        Link="/Content/Introduction/HyperStoreServices/ServicesHyperStore.htm" />
+      <TocEntry
+        Title="1.5.3 Cassandra Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesCassandra.htm" />
+      <TocEntry
+        Title="1.5.4 Redis Credentials and Redis QoS Services"
+        Link="/Content/Introduction/HyperStoreServices/ServicesRedis.htm" />
+      <TocEntry
+        Title="1.5.5 Redis Monitor Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesRedisMon.htm" />
+      <TocEntry
+        Title="1.5.6 Admin Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesAdmin.htm" />
+      <TocEntry
+        Title="1.5.7 IAM Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesIam.htm" />
+      <TocEntry
+        Title="1.5.8 Cloudian Management Console (CMC) Service"
+        Link="/Content/Introduction/HyperStoreServices/ServicesCmc.htm" />
+      <TocEntry
+        Title="1.5.9 Supporting Services"
+        Link="/Content/Introduction/HyperStoreServices/ServicesSupport.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="1.6 System Diagrams"
+      Link="/Content/Introduction/SystemDiagrams/SystemDiagramsOverview.htm"></TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="2. Getting Started with a New HyperStore System"
+    Link="/Content/GettingStarted/GettingStarted.htm" />
+  <TocEntry
+    Title="3. Upgrading Your HyperStore Software Version"
+    Link="/Content/Installation/Upgrade.htm" />
+  <TocEntry
+    Title="4. Working with HyperStore Major Features"
+    StartSection="false">
+    <TocEntry
+      Title="4.1 Nodes, Data Centers, and Regions"
+      Link="/Content/MajorFeatures/NodesDCsRegions/DCsRegionsOverview.htm">
+      <TocEntry
+        Title="4.1.1 Feature Overview"
+        Link="/Content/MajorFeatures/NodesDCsRegions/DCsRegionsOverview.htm" />
+      <TocEntry
+        Title="4.1.2 Capacity Monitoring and Expansion"
+        Link="/Content/MajorFeatures/NodesDCsRegions/DCsRegionsCapacity.htm" />
+      <TocEntry
+        Title="4.1.3 Using the CMC with Multiple DCs or Regions"
+        Link="/Content/MajorFeatures/NodesDCsRegions/DCsRegionsCMC.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.2 Storage Policies"
+      StartSection="false"
+      Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesOverview.htm">
+      <TocEntry
+        Title="4.2.1 Feature Overview"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesOverview.htm" />
+      <TocEntry
+        Title="4.2.2 Consistency Levels"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesConsistency.htm" />
+      <TocEntry
+        Title="4.2.3 Storage of Object Metadata"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesObjectMetadata.htm" />
+      <TocEntry
+        Title="4.2.4 Storage of System Metadata"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesSystemMetadata.htm" />
+      <TocEntry
+        Title="4.2.5 Creating and Managing Storage Policies"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesCreate.htm" />
+      <TocEntry
+        Title="4.2.6 Assigning a Storage Policy to a Bucket"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesBucket.htm" />
+      <TocEntry
+        Title="4.2.7 Finding an Object's Replicas or EC Fragments"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesWhereis.htm" />
+      <TocEntry
+        Title="4.2.8 Storage Policy Resilience to Downed Nodes"
+        Link="/Content/MajorFeatures/StoragePolicies/StoragePoliciesResilience.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.3 Security Features">
+      <TocEntry
+        Title="4.3.1 HyperStore Shell (HSH)"
+        Link="/Content/MajorFeatures/Security/HSH/HshOverview.htm">
+        <TocEntry
+          Title="4.3.1.1 Feature Overview"
+          Link="/Content/MajorFeatures/Security/HSH/HshOverview.htm" />
+        <TocEntry
+          Title="4.3.1.2 Enabling the HSH and Managing HSH Users"
+          Link="/Content/MajorFeatures/Security/HSH/HshEnabling.htm" />
+        <TocEntry
+          Title="4.3.1.3 Using the HSH"
+          Link="/Content/MajorFeatures/Security/HSH/HshUsing.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="4.3.2 HyperStore Firewall"
+        Link="/Content/MajorFeatures/Security/Firewall.htm" />
+      <TocEntry
+        Title="4.3.3 Server-Side Encryption"
+        Link="/Content/MajorFeatures/Security/SSE/SseOverview.htm">
+        <TocEntry
+          Title="4.3.3.1 Feature Overview"
+          Link="/Content/MajorFeatures/Security/SSE/SseOverview.htm" />
+        <TocEntry
+          Title="4.3.3.2 Using Regular SSE"
+          Link="/Content/MajorFeatures/Security/SSE/SseRegular.htm" />
+        <TocEntry
+          Title="4.3.3.3 Using SSE-C"
+          Link="/Content/MajorFeatures/Security/SSE/SseCustomerKeys.htm" />
+        <TocEntry
+          Title="4.3.3.4 Using AWS KMS"
+          Link="/Content/MajorFeatures/Security/SSE/SseKmsAws.htm" />
+        <TocEntry
+          Title="4.3.3.5 Enabling AES-256"
+          Link="/Content/MajorFeatures/Security/SSE/SseAes256.htm"
+          StartSection="false" />
+      </TocEntry>
+      <TocEntry
+        Title="4.3.4 FIPS Support"
+        Link="/Content/MajorFeatures/Security/Fips.htm" />
+      <TocEntry
+        Title="4.3.5 HTTPS Support (TLS/SSL)"
+        Link="/Content/MajorFeatures/Security/Https.htm" />
+      <TocEntry
+        Title="4.3.6 Secure Delete"
+        Link="/Content/MajorFeatures/Security/SecureDelete.htm" />
+      <TocEntry
+        Title="4.3.7 WORM (Object Lock)"
+        Link="/Content/MajorFeatures/Security/WORM/WormOverview.htm">
+        <TocEntry
+          Title="4.3.7.1 WORM (Object Lock) Feature Overview"
+          Link="/Content/MajorFeatures/Security/WORM/WormOverview.htm" />
+        <TocEntry
+          Title="4.3.7.2 Setting Up Object Locking"
+          Link="/Content/MajorFeatures/Security/WORM/WormSetup.htm" />
+      </TocEntry>
+    </TocEntry>
+    <TocEntry
+      Title="4.4 S3 Service"
+      Link="/Content/MajorFeatures/S3/S3Overview.htm">
+      <TocEntry
+        Title="4.4.1 Feature Overview"
+        Link="/Content/MajorFeatures/S3/S3Overview.htm" />
+      <TocEntry
+        Title="4.4.2 Using the CMC as Your S3 Client"
+        Link="/Content/MajorFeatures/S3/S3Cmc.htm" />
+      <TocEntry
+        Title="4.4.3 Using Third Party S3 Applications"
+        Link="/Content/MajorFeatures/S3/S3Api.htm" />
+      <TocEntry
+        Title="4.4.4 Developing Custom S3 Applications for HyperStore"
+        Link="/Content/MajorFeatures/S3/S3Custom.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.5 IAM Service"
+      Link="/Content/MajorFeatures/IAM/IamOverview.htm">
+      <TocEntry
+        Title="4.5.1 Feature Overview"
+        Link="/Content/MajorFeatures/IAM/IamOverview.htm" />
+      <TocEntry
+        Title="4.5.2 Using the IAM Service"
+        Link="/Content/MajorFeatures/IAM/IamUsing.htm" />
+      <TocEntry
+        Title="4.5.3 IAM Extensions for Role-Based Access to HyperStore Admin Functions"
+        Link="/Content/MajorFeatures/IAM/IamRbac.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.6 User Provisioning and LDAP Integration"
+      Link="/Content/MajorFeatures/UserProvisioning/ProvisioningOverview.htm">
+      <TocEntry
+        Title="4.6.1 Feature Overview"
+        Link="/Content/MajorFeatures/UserProvisioning/ProvisioningOverview.htm" />
+      <TocEntry
+        Title="4.6.2 Provisioning Groups"
+        Link="/Content/MajorFeatures/UserProvisioning/ProvisioningGroups.htm" />
+      <TocEntry
+        Title="4.6.3 Provisioning Users"
+        Link="/Content/MajorFeatures/UserProvisioning/ProvisioningUsers.htm" />
+      <TocEntry
+        Title="4.6.4 LDAP Integration"
+        Link="/Content/MajorFeatures/UserProvisioning/ProvisioningLdap.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.7 Quality of Service Controls"
+      Link="/Content/MajorFeatures/QualityOfService/QosOverview.htm">
+      <TocEntry
+        Title="4.7.1 Feature Overview"
+        Link="/Content/MajorFeatures/QualityOfService/QosOverview.htm" />
+      <TocEntry
+        Title="4.7.2 Enabling QoS Enforcement"
+        Link="/Content/MajorFeatures/QualityOfService/QosEnable.htm" />
+      <TocEntry
+        Title="4.7.3 Setting QoS Limits for Groups"
+        Link="/Content/MajorFeatures/QualityOfService/QosGroups.htm" />
+      <TocEntry
+        Title="4.7.4 Setting QoS Limits for Users"
+        Link="/Content/MajorFeatures/QualityOfService/QosUsers.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.8 Usage Reporting and Billing"
+      Link="/Content/MajorFeatures/UsageReporting/UsageOverview.htm">
+      <TocEntry
+        Title="4.8.1 Feature Overview"
+        Link="/Content/MajorFeatures/UsageReporting/UsageOverview.htm" />
+      <TocEntry
+        Title="4.8.2 Enabling Advanced Usage Reporting Features"
+        Link="/Content/MajorFeatures/UsageReporting/UsageEnablingTracking.htm" />
+      <TocEntry
+        Title="4.8.3 Validating Storage Usage Data"
+        Link="/Content/MajorFeatures/UsageReporting/UsageValidation.htm" />
+      <TocEntry
+        Title="4.8.4 Setting Usage Data Retention Periods"
+        Link="/Content/MajorFeatures/UsageReporting/UsageRetention.htm" />
+      <TocEntry
+        Title="4.8.5 Generating a Usage Report"
+        Link="/Content/MajorFeatures/UsageReporting/UsageReporting.htm" />
+      <TocEntry
+        Title="4.8.6 Creating Rating Plans for Billing"
+        Link="/Content/MajorFeatures/UsageReporting/BillingCreateRatingPlans.htm" />
+      <TocEntry
+        Title="4.8.7 Assigning Rating Plans to Users"
+        Link="/Content/MajorFeatures/UsageReporting/BillingAssignRatingPlans.htm" />
+      <TocEntry
+        Title="4.8.8 Creating a &quot;Whitelist&quot; for Free Traffic"
+        Link="/Content/MajorFeatures/UsageReporting/BillingWhitelist.htm" />
+      <TocEntry
+        Title="4.8.9 Generating a Bill for a User or Group"
+        Link="/Content/MajorFeatures/UsageReporting/BillingGenerate.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.9 Automated Data Repair"
+      Link="/Content/MajorFeatures/DataRepair/DataRepairOverview.htm">
+      <TocEntry
+        Title="4.9.1 Feature Overview"
+        Link="/Content/MajorFeatures/DataRepair/DataRepairOverview.htm" />
+      <TocEntry
+        Title="4.9.2 Configuring Automatic Data Repair"
+        Link="/Content/MajorFeatures/DataRepair/DataRepairConfigure.htm" />
+      <TocEntry
+        Title="4.9.3 Checking Data Repair Status"
+        Link="/Content/MajorFeatures/DataRepair/DataRepairStatus.htm" />
+      <TocEntry
+        Title="4.9.4 Disabling or Stopping Data Repairs"
+        Link="/Content/MajorFeatures/DataRepair/DataRepairDisable.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.10 Automated Disk Management"
+      Link="/Content/MajorFeatures/DiskManagement/DiskUsageOverview.htm">
+      <TocEntry
+        Title="4.10.1 Feature Overview"
+        Link="/Content/MajorFeatures/DiskManagement/DiskUsageOverview.htm" />
+      <TocEntry
+        Title="4.10.2 Configuring Disk Usage Balancing"
+        Link="/Content/MajorFeatures/DiskManagement/DiskUsageConfigure.htm" />
+      <TocEntry
+        Title="4.10.3 Triggering a Disk Usage Balance Check"
+        Link="/Content/MajorFeatures/DiskManagement/DiskUsageTrigger.htm" />
+      <TocEntry
+        Title="4.10.4 Configuring Disk Failure Handling"
+        Link="/Content/MajorFeatures/DiskManagement/DiskFailureConfigure.htm" />
+      <TocEntry
+        Title="4.10.5 Checking Disk Usage and Health Status"
+        Link="/Content/MajorFeatures/DiskManagement/DiskUsageStatus.htm" />
+      <TocEntry
+        Title="4.10.6 Disk Error Alerts"
+        Link="/Content/MajorFeatures/DiskManagement/DiskFailureAlerts.htm" />
+      <TocEntry
+        Title="4.10.7 Responding to a Disabled Disk"
+        Link="/Content/MajorFeatures/DiskManagement/DiskFailureRestore.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.11 Object Metadata"
+      Link="/Content/MajorFeatures/ObjectMetadata/ObjectMetadataOverview.htm">
+      <TocEntry
+        Title="4.11.1 Feature Overview"
+        Link="/Content/MajorFeatures/ObjectMetadata/ObjectMetadataOverview.htm" />
+      <TocEntry
+        Title="4.11.2 Creating Object Metadata and Tags"
+        Link="/Content/MajorFeatures/ObjectMetadata/ObjectMetadataCreate.htm" />
+      <TocEntry
+        Title="4.11.3 Retrieving Object Metadata and Tags"
+        Link="/Content/MajorFeatures/ObjectMetadata/ObjectMetadataRetrieve.htm" />
+      <TocEntry
+        Title="4.11.4 Elasticsearch Integration for Object Metadata"
+        Link="/Content/MajorFeatures/ObjectMetadata/ObjectMetadataElasticSearch.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.12 Auto-Tiering"
+      Link="/Content/MajorFeatures/AutoTiering/AutoTieringOverview.htm"
+      StartSection="false">
+      <TocEntry
+        Title="4.12.1 Feature Overview"
+        Link="/Content/MajorFeatures/AutoTiering/AutoTieringOverview.htm" />
+      <TocEntry
+        Title="4.12.2 Setting Up Auto-Tiering"
+        Link="/Content/MajorFeatures/AutoTiering/AutoTieringSetUp.htm" />
+      <TocEntry
+        Title="4.12.3 Accessing Auto-Tiered Objects"
+        Link="/Content/MajorFeatures/AutoTiering/AutoTieringObjectAccess.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.13 Cross-Region Replication"
+      Link="/Content/MajorFeatures/CRR/CrrOverview.htm">
+      <TocEntry
+        Title="4.13.1 Cross-Region Replication Feature Overview"
+        Link="/Content/MajorFeatures/CRR/CrrOverview.htm" />
+      <TocEntry
+        Title="4.13.2 Configuring Cross-Region Replication for a Bucket"
+        Link="/Content/MajorFeatures/CRR/CrrConfigure.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="4.14 Smart Support"
+      Link="/Content/MajorFeatures/SmartSupport/SmartSupportOverview.htm">
+      <TocEntry
+        Title="4.14.1 Feature Overview"
+        Link="/Content/MajorFeatures/SmartSupport/SmartSupportOverview.htm"
+        StartSection="false" />
+      <TocEntry
+        Title="4.14.2 Configuring Smart Support and Node Diagnostics"
+        Link="/Content/MajorFeatures/SmartSupport/SmartSupportConfigure.htm" />
+      <TocEntry
+        Title="4.14.3 Executing Node Diagnostics Collection"
+        Link="/Content/MajorFeatures/SmartSupport/SmartSupportDiagnostics.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="5. Using the Cloudian Management Console"
+    Link="/Content/CMC Interface/CmcInterfaceOverview.htm">
+    <TocEntry
+      Title="5.1 Dashboard"
+      Link="/Content/CMC Interface/Dashboard.htm" />
+    <TocEntry
+      Title="5.2 Analytics"
+      Link="/Content/CMC Interface/Analytics/AnalyticsTab.htm">
+      <TocEntry
+        Title="5.2.1 Cluster Usage"
+        Link="/Content/CMC Interface/Analytics/ClusterUsage.htm" />
+      <TocEntry
+        Title="5.2.2 Capacity Explorer"
+        Link="/Content/CMC Interface/Analytics/CapacityExplorer.htm" />
+      <TocEntry
+        Title="5.2.3 Usage By Users &amp; Groups"
+        Link="/Content/CMC Interface/Analytics/Usage By Users &amp; Groups/UsageOverview.htm">
+        <TocEntry
+          Title="5.2.3.1 Create a Usage Report"
+          Link="/Content/CMC Interface/Analytics/Usage By Users &amp; Groups/UsageCreateReport.htm" />
+        <TocEntry
+          Title="5.2.3.2 Review Usage Report Output"
+          Link="/Content/CMC Interface/Analytics/Usage By Users &amp; Groups/UsageReviewReport.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.2.4 Object Locator"
+        Link="/Content/CMC Interface/Analytics/ObjectLocator.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.3 Buckets"
+      Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/BucketsOverview.htm">
+      <TocEntry
+        Title="5.3.1 Add a Bucket"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/BucketAdd.htm" />
+      <TocEntry
+        Title="5.3.2 Set Bucket Properties"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesOverview.htm">
+        <TocEntry
+          Title="5.3.2.1 Set Custom S3 Permissions for a Bucket"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesCustomPermissions.htm" />
+        <TocEntry
+          Title="5.3.2.2 Set &quot;Canned&quot; S3 Permissions for a Bucket"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesCannedPermissions.htm" />
+        <TocEntry
+          Title="5.3.2.3 View a Bucket's Storage Policy Information"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesStoragePolicy.htm" />
+        <TocEntry
+          Title="5.3.2.4 Configure a Bucket Lifecycle Policy for Object Auto-Tiering or Expiration"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesLifecycle.htm" />
+        <TocEntry
+          Title="5.3.2.5 Configure a Bucket as a Static Website"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesStaticWebsite.htm" />
+        <TocEntry
+          Title="5.3.2.6 Configure Cross-Region Replication for a Bucket"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesReplication.htm" />
+        <TocEntry
+          Title="5.3.2.7 Set Versioning for a Bucket"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesVersioning.htm" />
+        <TocEntry
+          Title="5.3.2.8 Set Logging for a Bucket"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/Set Bucket Properties/BucketPropertiesLogging.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.3.3 Delete a Bucket"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Buckets/BucketDelete.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.4 Objects"
+      Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectsOverview.htm">
+      <TocEntry
+        Title="5.4.1 Create or Delete a &quot;Folder&quot;"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectCreateFolder.htm" />
+      <TocEntry
+        Title="5.4.2 Upload an Object"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectUpload.htm"
+        StartSection="false" />
+      <TocEntry
+        Title="5.4.3 Set Object Properties"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/Set Object Properties/ObjectPropertiesOverview.htm">
+        <TocEntry
+          Title="5.4.3.1 Set Custom S3 Permissions on an Object"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/Set Object Properties/ObjectPropertiesCustomPermissions.htm" />
+        <TocEntry
+          Title="5.4.3.2 Set &quot;Canned&quot; S3 Permissions on an Object"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/Set Object Properties/ObjectPropertiesCannedPermissions.htm" />
+        <TocEntry
+          Title="5.4.3.3 Set Public URL Permissions on an Object"
+          Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/Set Object Properties/ObjectPropertiesPublicUrl.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.4.4 List or Search for Objects"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectSearch.htm" />
+      <TocEntry
+        Title="5.4.5 Download an Object"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectDownload.htm" />
+      <TocEntry
+        Title="5.4.6 Restore an Auto-Tiered Object"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectRestore.htm" />
+      <TocEntry
+        Title="5.4.7 Delete an Object"
+        Link="/Content/CMC Interface/Buckets &amp; Objects/Objects/ObjectDelete.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.5 Users &amp; Groups"
+      Link="/Content/CMC Interface/Users &amp; Groups/UsersGroupsTab.htm">
+      <TocEntry
+        Title="5.5.1 Manage Users"
+        Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersOverview.htm">
+        <TocEntry
+          Title="5.5.1.1 Add a User"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersAdd.htm" />
+        <TocEntry
+          Title="5.5.1.2 Retrieve a User or List of Users"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersRetrieve.htm" />
+        <TocEntry
+          Title="5.5.1.3 Edit or Suspend a User"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersEdit.htm" />
+        <TocEntry
+          Title="5.5.1.4 View or Edit a User's Security Credentials"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersCredentials.htm" />
+        <TocEntry
+          Title="5.5.1.5 Manage a User's Stored Objects"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersObjects.htm" />
+        <TocEntry
+          Title="5.5.1.6 Delete a User"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Users/ManageUsersDelete.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.5.2 Manage Groups"
+        Link="/Content/CMC Interface/Users &amp; Groups/Manage Groups/ManageGroupsOverview.htm">
+        <TocEntry
+          Title="5.5.2.1 Add a Group"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Groups/ManageGroupsAdd.htm" />
+        <TocEntry
+          Title="5.5.2.2 Retrieve a Group or a List of Groups"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Groups/ManageGroupsRetrieve.htm" />
+        <TocEntry
+          Title="5.5.2.3 Edit a Group"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Groups/ManageGroupsEdit.htm" />
+        <TocEntry
+          Title="5.5.2.4 Delete a Group"
+          Link="/Content/CMC Interface/Users &amp; Groups/Manage Groups/ManageGroupsDelete.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.5.3 Rating Plan"
+        Link="/Content/CMC Interface/Users &amp; Groups/Rating Plan/RatingPlanOverview.htm">
+        <TocEntry
+          Title="5.5.3.1 Add a Rating Plan"
+          Link="/Content/CMC Interface/Users &amp; Groups/Rating Plan/RatingPlanAdd.htm" />
+        <TocEntry
+          Title="5.5.3.2 Edit a Rating Plan"
+          Link="/Content/CMC Interface/Users &amp; Groups/Rating Plan/RatingPlanEdit.htm" />
+        <TocEntry
+          Title="5.5.3.3 Default Rating Plan"
+          Link="/Content/CMC Interface/Users &amp; Groups/Rating Plan/RatingPlanDefault.htm" />
+        <TocEntry
+          Title="5.5.3.4 Delete a Rating Plan"
+          Link="/Content/CMC Interface/Users &amp; Groups/Rating Plan/RatingPlanDelete.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.5.4 Account Activity"
+        Link="/Content/CMC Interface/Users &amp; Groups/AccountActivity.htm" />
+      <TocEntry
+        Title="5.5.5 Whitelist"
+        Link="/Content/CMC Interface/Users &amp; Groups/Whitelist.htm" />
+      <TocEntry
+        Title="5.5.6 Set Quality of Service for Users and Groups"
+        Link="/Content/CMC Interface/Users &amp; Groups/SetQoS.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.6 IAM"
+      Link="/Content/CMC Interface/IAM/IamTab.htm">
+      <TocEntry
+        Title="5.6.1 Manage IAM User"
+        Link="/Content/CMC Interface/IAM/ManageIamUser.htm" />
+      <TocEntry
+        Title="5.6.2 Manage IAM Group"
+        Link="/Content/CMC Interface/IAM/ManageIamGroup.htm" />
+      <TocEntry
+        Title="5.6.3 Manage IAM Policy"
+        Link="/Content/CMC Interface/IAM/ManageIamPolicy.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.7 Cluster"
+      Link="/Content/CMC Interface/Cluster/ClusterTab.htm">
+      <TocEntry
+        Title="5.7.1 Data Centers"
+        Link="/Content/CMC Interface/Cluster/Data Centers/DataCentersOverview.htm"></TocEntry>
+      <TocEntry
+        Title="5.7.2 Node Status"
+        Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusOverview.htm">
+        <TocEntry
+          Title="5.7.2.1 View a Node's Summary Status"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusSummary.htm" />
+        <TocEntry
+          Title="5.7.2.2 View a Node's Disk Detail"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusDisks.htm"></TocEntry>
+        <TocEntry
+          Title="5.7.2.3 Locate a Disk on a HyperStore Appliance"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusApplianceDiskMap.htm" />
+        <TocEntry
+          Title="5.7.2.4 View a Node's Memory Usage"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusMemory.htm" />
+        <TocEntry
+          Title="5.7.2.5 View a Node's Services Status"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusServices.htm" />
+        <TocEntry
+          Title="5.7.2.6 Start, Stop, or Restart Services On a Node"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusServicesStartStop.htm" />
+        <TocEntry
+          Title="5.7.2.7 View and Acknowledge Node Alerts"
+          Link="/Content/CMC Interface/Cluster/Node Status/NodeStatusAlerts.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.7.3 Node Activity"
+        Link="/Content/CMC Interface/Cluster/NodeActivity.htm"></TocEntry>
+      <TocEntry
+        Title="5.7.4 Node Advanced"
+        Link="/Content/CMC Interface/Cluster/Advanced/AdvancedOverview.htm">
+        <TocEntry
+          Title="5.7.4.1 Info Commands"
+          Link="/Content/CMC Interface/Cluster/Advanced/InfoCommands.htm" />
+        <TocEntry
+          Title="5.7.4.2 Maintenance Commands"
+          Link="/Content/CMC Interface/Cluster/Advanced/MaintenanceCommands.htm" />
+        <TocEntry
+          Title="5.7.4.3 Redis Monitor Commands"
+          Link="/Content/CMC Interface/Cluster/Advanced/RedisMonCommands.htm" />
+        <TocEntry
+          Title="5.7.4.4 Disk Management Commands"
+          Link="/Content/CMC Interface/Cluster/Advanced/DiskMgmtCommands.htm" />
+        <TocEntry
+          Title="5.7.4.5 Collect Diagnostics"
+          Link="/Content/CMC Interface/Cluster/Advanced/CollectDiagnostics.htm" />
+        <TocEntry
+          Title="5.7.4.6 Start Maintenance Mode"
+          Link="/Content/CMC Interface/Cluster/Advanced/Maintenance Mode.htm" />
+        <TocEntry
+          Title="5.7.4.7 Uninstall Node"
+          Link="/Content/CMC Interface/Cluster/Advanced/UninstallNode.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.7.5 Cluster Information"
+        Link="/Content/CMC Interface/Cluster/Cluster Information/ClusterInformationOverview.htm">
+        <TocEntry
+          Title="5.7.5.1 Renew and Install a License"
+          Link="/Content/CMC Interface/Cluster/Cluster Information/ClusterInformationLicense.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.7.6 Configuration Settings"
+        Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsOverview.htm">
+        <TocEntry
+          Title="5.7.6.1 SMTP/Email Settings for Alerts/Notifications"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsSMTP.htm" />
+        <TocEntry
+          Title="5.7.6.2 SNMP Trap Destination Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsSNMP.htm" />
+        <TocEntry
+          Title="5.7.6.3 System Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsSystem.htm" />
+        <TocEntry
+          Title="5.7.6.4 Usage Tracking Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsUsage.htm" />
+        <TocEntry
+          Title="5.7.6.5 Quality of Service Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsQoS.htm" />
+        <TocEntry
+          Title="5.7.6.6 Auto-Tiering Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsAutoTiering.htm" />
+        <TocEntry
+          Title="5.7.6.7 S3 Request Restriction Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsS3Restrictions.htm" />
+        <TocEntry
+          Title="5.7.6.8 Auto-Repair Schedule Settings"
+          Link="/Content/CMC Interface/Cluster/Configuration Settings/ConfigurationSettingsAutoRepair.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.7.7 Storage Policies"
+        Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesOverview.htm">
+        <TocEntry
+          Title="5.7.7.1 Add a Storage Policy"
+          Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesAdd.htm" />
+        <TocEntry
+          Title="5.7.7.2 Edit a Storage Policy"
+          Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesEdit.htm" />
+        <TocEntry
+          Title="5.7.7.3 Designate a Default Storage Policy"
+          Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesDefault.htm" />
+        <TocEntry
+          Title="5.7.7.4 Disable a Storage Policy"
+          Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesDisable.htm" />
+        <TocEntry
+          Title="5.7.7.5 Delete a Storage Policy"
+          Link="/Content/CMC Interface/Cluster/Storage Policies/StoragePoliciesDelete.htm" />
+      </TocEntry>
+      <TocEntry
+        Title="5.7.8 Repair Status"
+        Link="/Content/CMC Interface/Analytics/RepairStatus.htm" />
+      <TocEntry
+        Title="5.7.9 Operation Status"
+        Link="/Content/CMC Interface/Cluster/OperationStatus.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.8 Alerts"
+      Link="/Content/CMC Interface/Alerts/AlertsTab.htm">
+      <TocEntry
+        Title="5.8.1 Alerts"
+        Link="/Content/CMC Interface/Alerts/Alerts.htm" />
+      <TocEntry
+        Title="5.8.2 Alert Rules"
+        Link="/Content/CMC Interface/Alerts/AlertRules.htm" />
+      <TocEntry
+        Title="5.8.3 How HyperStore Implements Alerts"
+        Link="/Content/CMC Interface/Alerts/AlertRulesImplementation.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.9 My Account"
+      Link="/Content/CMC Interface/My Account/MyAccountOverview.htm">
+      <TocEntry
+        Title="5.9.1 Profile"
+        Link="/Content/CMC Interface/My Account/Profile.htm" />
+      <TocEntry
+        Title="5.9.2 Security Credentials"
+        Link="/Content/CMC Interface/My Account/SecurityCredentials.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="5.10 Customizing the CMC">
+      <TocEntry
+        Title="5.10.1 Showing/Hiding CMC UI Functions"
+        Link="/Content/CMC Interface/Customizing/ShowHide.htm" />
+      <TocEntry
+        Title="5.10.2 Rebranding the CMC UI"
+        Link="/Content/CMC Interface/Customizing/Rebranding.htm" />
+      <TocEntry
+        Title="5.10.3 Implementing SSO"
+        Link="/Content/CMC Interface/Customizing/CmcSso.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="6. Node and Cluster Operations">
+    <TocEntry
+      Title="6.1 Starting and Stopping Services"
+      Link="/Content/Operations/StartingAndStoppingServices/StartStopOverview.htm"></TocEntry>
+    <TocEntry
+      Title="6.2 Adding Nodes"
+      Link="/Content/Operations/AddNode.htm" />
+    <TocEntry
+      Title="6.3 Adding a Data Center"
+      Link="/Content/Operations/AddDc.htm" />
+    <TocEntry
+      Title="6.4 Adding a Region"
+      Link="/Content/Operations/AddRegion.htm" />
+    <TocEntry
+      Title="6.5 Removing a Node"
+      Link="/Content/Operations/RemoveNode.htm" />
+    <TocEntry
+      Title="6.6 Replacing a Node"
+      Link="/Content/Operations/ReplaceNode.htm" />
+    <TocEntry
+      Title="6.7 Restoring a Node"
+      Link="/Content/Operations/RestoreNode.htm" />
+    <TocEntry
+      Title="6.8 Changing a Node's IP Address"
+      Link="/Content/Operations/ChangeNodeIp.htm" />
+    <TocEntry
+      Title="6.9 Backing Up and Restoring a Cluster"
+      Link="/Content/Operations/BackupRestoreCluster.htm" />
+    <TocEntry
+      Title="6.10 Changing Node Role Assignments"
+      Link="/Content/Operations/ChangeNodeRole/ChangeNodeRoleOverview.htm">
+      <TocEntry
+        Title="6.10.1 Move the Redis Credentials Master or QoS Master Role"
+        Link="/Content/Operations/ChangeNodeRole/MoveRedisMaster.htm" />
+      <TocEntry
+        Title="6.10.2 Move or Add a Redis Credentials Slave or Redis QoS Slave"
+        Link="/Content/Operations/ChangeNodeRole/MoveAddRedisSlave.htm" />
+      <TocEntry
+        Title="6.10.3 Move the Cassandra Seed Role"
+        Link="/Content/Operations/ChangeNodeRole/MoveCassandraSeed.htm" />
+      <TocEntry
+        Title="6.10.4 Reduce or Change the List of CMC Hosts"
+        Link="/Content/Operations/ChangeNodeRole/MoveCmc.htm" />
+      <TocEntry
+        Title="6.10.5 Move the Redis Monitor Primary or Backup Role"
+        Link="/Content/Operations/ChangeNodeRole/MoveRedismon.htm" />
+      <TocEntry
+        Title="6.10.6 Move the Crontab Primary or Backup Role"
+        Link="/Content/Operations/ChangeNodeRole/MoveCrontab.htm" />
+      <TocEntry
+        Title="6.10.7 Move the Puppet Master Primary or Backup Role"
+        Link="/Content/Operations/ChangeNodeRole/MovePuppetMaster.htm" />
+      <TocEntry
+        Title="6.10.8 Move the Internal NTP Server or Specify External NTP Servers"
+        Link="/Content/Operations/ChangeNodeRole/MoveNtp.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="6.11 Cron Jobs and Automated Maintenance"
+      Link="/Content/Maintenance/AutoMaintenanceOverview.htm"
+      StartSection="false">
+      <TocEntry
+        Title="6.11.1 System cron Jobs"
+        Link="/Content/Maintenance/CronJobs.htm" />
+      <TocEntry
+        Title="6.11.2 Scheduled Auto-Repair"
+        Link="/Content/Maintenance/ScheduledRepair.htm" />
+      <TocEntry
+        Title="6.11.3 Cassandra Data Compaction"
+        Link="/Content/Maintenance/CassandraCompaction.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="7. Disk Operations">
+    <TocEntry
+      Title="7.1 Disabling a HyperStore Data Disk"
+      Link="/Content/Operations/DisableDisk.htm" />
+    <TocEntry
+      Title="7.2 Enabling a HyperStore Data Disk"
+      Link="/Content/Operations/EnableDisk.htm" />
+    <TocEntry
+      Title="7.3 Replacing a HyperStore Data Disk"
+      Link="/Content/Operations/ReplaceDisk.htm" />
+    <TocEntry
+      Title="7.4 Replacing a Cassandra Disk"
+      Link="/Content/Operations/ReplaceDiskCassandra.htm" />
+    <TocEntry
+      Title="7.5 Responding to Data Disks Nearing Capacity"
+      Link="/Content/Operations/RespondDiskCapacity.htm" />
+    <TocEntry
+      Title="7.6 Responding to Cassandra Disks Nearing Capacity"
+      Link="/Content/Operations/RespondDiskCapacityCassandra.htm" />
+    <TocEntry
+      Title="7.7 Adding Disks is Not Supported"
+      Link="/Content/Operations/AddDisk.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="8. System Monitoring">
+    <TocEntry
+      Title="8.1 Using the CMC to Monitor Your HyperStore System"
+      Link="/Content/Monitoring/MonitoringCmc.htm" />
+    <TocEntry
+      Title="8.2 Additional Monitoring Tools">
+      <TocEntry
+        Title="8.2.1 Using the Admin API to Monitor HyperStore"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringApi.htm" />
+      <TocEntry
+        Title="8.2.2 Doing a Simple HTTP Responsiveness Check"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringHttp.htm" />
+      <TocEntry
+        Title="8.2.3 Using JMX to Monitor Java-Based HyperStore Services"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringJmx.htm" />
+      <TocEntry
+        Title="8.2.4 Using Native Linux Utilities for System Resource Monitoring"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringLinux.htm" />
+      <TocEntry
+        Title="8.2.5 Using nodetool to Monitor Cassandra"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringNodetool.htm" />
+      <TocEntry
+        Title="8.2.6 Using the Redis CLI to Monitor Redis"
+        Link="/Content/Monitoring/AdditionalMonitoringTools/MonitoringRedisCli.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="9. System Configuration">
+    <TocEntry
+      Title="9.1 CMC's Configuration Settings Page"
+      Link="/Content/SystemConfiguration/CmcConfigSettings.htm" />
+    <TocEntry
+      Title="9.2 Installer Advanced Configuration Options"
+      Link="/Content/Installation/Reference/AdvancedInstallationConfig.htm" />
+    <TocEntry
+      Title="9.3 Pushing Configuration File Edits to the Cluster"
+      Link="/Content/SystemConfiguration/PuppetSync.htm" />
+    <TocEntry
+      Title="9.4 Using the HSH to Manage Configuration Files"
+      Link="/Content/SystemConfiguration/HshConfig.htm" />
+    <TocEntry
+      Title="9.5 HyperStore Configuration Files"
+      Link="/Content/SystemConfiguration/ConfigurationFiles/ConfigFileOverview.htm">
+      <TocEntry
+        Title="9.5.1 common.csv"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/CommonCsv.htm" />
+      <TocEntry
+        Title="9.5.2 hyperstore-server.properties.erb"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/HyperstoreServerProperties.htm" />
+      <TocEntry
+        Title="9.5.3 mts.properties.erb"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/MtsProperties.htm" />
+      <TocEntry
+        Title="9.5.4. mts-ui.properties.erb"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/MtsUiProperties.htm" />
+      <TocEntry
+        Title="9.5.5 Other Configuration Files"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/OtherFiles.htm" />
+      <TocEntry
+        Title="9.5.6 Using JMX to Dynamically Change Configuration Settings"
+        Link="/Content/SystemConfiguration/ConfigurationFiles/ConfigFileJmx.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="9.6 Configuration Special Topics">
+      <TocEntry
+        Title="9.6.1 Anti-Virus Software"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/AntiVirusConfig.htm" />
+      <TocEntry
+        Title="9.6.2  NTP Automatic Set-Up"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/NTPConfig.htm" />
+      <TocEntry
+        Title="9.6.3 Changing Listening Ports"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/PortAssignments.htm" />
+      <TocEntry
+        Title="9.6.4 Changing Service Endpoints"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/ServiceEndpoints.htm" />
+      <TocEntry
+        Title="9.6.5 Tuning HyperStore Performance Parameters"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/PerformanceTuning.htm" />
+      <TocEntry
+        Title="9.6.6 Vanity Domains for S3 Buckets"
+        Link="/Content/SystemConfiguration/ConfigurationSpecialTopics/VanityDomainConfig.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="10. Logging"
+    Link="/Content/Logging/LoggingOverview.htm">
+    <TocEntry
+      Title="10.1 HyperStore Logs"
+      Link="/Content/Logging/LoggingOverview.htm" />
+    <TocEntry
+      Title="10.2 Log Configuration Settings"
+      Link="/Content/Logging/LoggingSettings.htm" />
+    <TocEntry
+      Title="10.3. Aggregating Logs to a Central Server"
+      Link="/Content/Logging/LoggingAggregation.htm" />
+    <TocEntry
+      Title="10.4 Setting Up Elastic Stack for S3 Request Traffic Analysis"
+      Link="/Content/Logging/LoggingAnalysis.htm" />
+    <TocEntry
+      Title="10.5 Using the HSH to View Logs"
+      Link="/Content/Logging/LoggingHsh.htm" />
+    <TocEntry
+      Title="Log Message Codes"
+      Link="/Content/MessageCodes/MessageCodesOverview.htm">
+      <TocEntry
+        Title="DC Codes"
+        Link="/Content/MessageCodes/MessageCodesDC.htm" />
+      <TocEntry
+        Title="HS Codes"
+        Link="/Content/MessageCodes/MessageCodesHS.htm" />
+      <TocEntry
+        Title="IS Codes"
+        Link="/Content/MessageCodes/MessageCodesIS.htm" />
+      <TocEntry
+        Title="RM Codes"
+        Link="/Content/MessageCodes/MessageCodesRM.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="11. Commands">
+    <TocEntry
+      Title="11.1 hsstool"
+      Link="/Content/Commands/hsstool/hsstoolOverview.htm">
+      <TocEntry
+        Title="11.1.1 cleanup"
+        Link="/Content/Commands/hsstool/hsstoolCleanup.htm" />
+      <TocEntry
+        Title="11.1.2 cleanupec"
+        Link="/Content/Commands/hsstool/hsstoolCleanupec.htm" />
+      <TocEntry
+        Title="11.1.3 info"
+        Link="/Content/Commands/hsstool/hsstoolInfo.htm" />
+      <TocEntry
+        Title="11.1.4 ls"
+        Link="/Content/Commands/hsstool/hsstoolLs.htm" />
+      <TocEntry
+        Title="11.1.5 metadata"
+        Link="/Content/Commands/hsstool/hsstoolMetadata.htm" />
+      <TocEntry
+        Title="11.1.6 opctl"
+        Link="/Content/Commands/hsstool/hsstoolOpctl.htm" />
+      <TocEntry
+        Title="11.1.7 opstatus"
+        Link="/Content/Commands/hsstool/hsstoolOpstatus.htm" />
+      <TocEntry
+        Title="11.1.8 proactiverepairq"
+        Link="/Content/Commands/hsstool/hsstoolProactiverepairq.htm" />
+      <TocEntry
+        Title="11.1.9 rebalance"
+        Link="/Content/Commands/hsstool/hsstoolRebalance.htm" />
+      <TocEntry
+        Title="11.1.10 repair"
+        Link="/Content/Commands/hsstool/hsstoolRepair.htm" />
+      <TocEntry
+        Title="11.1.11 repaircassandra"
+        Link="/Content/Commands/hsstool/hsstoolRepaircassandra.htm" />
+      <TocEntry
+        Title="11.1.12 repairec"
+        Link="/Content/Commands/hsstool/hsstoolRepairec.htm" />
+      <TocEntry
+        Title="11.1.13 repairqueue"
+        Link="/Content/Commands/hsstool/hsstoolRepairqueue.htm" />
+      <TocEntry
+        Title="11.1.14 ring"
+        Link="/Content/Commands/hsstool/hsstoolRing.htm" />
+      <TocEntry
+        Title="11.1.15 status"
+        Link="/Content/Commands/hsstool/hsstoolStatus.htm" />
+      <TocEntry
+        Title="11.1.16 trmap"
+        Link="/Content/Commands/hsstool/hsstoolTrmap.htm" />
+      <TocEntry
+        Title="11.1.17 whereis"
+        Link="/Content/Commands/hsstool/hsstoolWhereis.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="11.2 Redis Monitor Commands"
+      Link="/Content/Commands/RedisMonitor/RedisMonOverview.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="12. Admin API"
+    Link="/Content/AdminApi/AdminApiOverview.htm">
+    <TocEntry
+      Title="12.1 Introduction"
+      Link="/Content/AdminApi/AdminApiOverview.htm">
+      <TocEntry
+        Title="12.1.1 Admin API Introduction"
+        Link="/Content/AdminApi/AdminApiOverview.htm" />
+      <TocEntry
+        Title="12.1.2 Admin API Methods List"
+        Link="/Content/AdminApi/AdminApiList.htm" />
+      <TocEntry
+        Title="12.1.3 Common Headers"
+        Link="/Content/AdminApi/AdminApiCommonHeaders.htm" />
+      <TocEntry
+        Title="12.1.4 Common Status Codes"
+        Link="/Content/AdminApi/AdminApiStatusCodes.htm" />
+      <TocEntry
+        Title="12.1.5 cURL Examples"
+        Link="/Content/AdminApi/AdminApiExamples.htm" />
+      <TocEntry
+        Title="12.1.6 HTTP and HTTPS for Admin API Access"
+        Link="/Content/AdminApi/AdminApiHttps.htm" />
+      <TocEntry
+        Title="12.1.7 HTTP(S)  Basic Authentication for Admin API Access"
+        Link="/Content/AdminApi/AdminApiBasicAuthentication.htm" />
+      <TocEntry
+        Title="12.1.8 Admin API Logging"
+        Link="/Content/AdminApi/AdminApiLogging.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="12.2 billing"
+      Link="/Content/AdminApi/Billing/Billing.htm" />
+    <TocEntry
+      Title="12.3 bppolicy"
+      Link="/Content/AdminApi/StoragePolicies/BpPolicy.htm" />
+    <TocEntry
+      Title="12.4 bucketops"
+      Link="/Content/AdminApi/BucketOps/bucketops.htm" />
+    <TocEntry
+      Title="12.5 group"
+      Link="/Content/AdminApi/GroupManagement/Group.htm" />
+    <TocEntry
+      Title="12.6 monitor"
+      Link="/Content/AdminApi/SystemMonitoring/Monitor.htm" />
+    <TocEntry
+      Title="12.7 permissions"
+      Link="/Content/AdminApi/PublicUrls/Permissions.htm" />
+    <TocEntry
+      Title="12.8 qos"
+      Link="/Content/AdminApi/QualityOfService/Qos.htm" />
+    <TocEntry
+      Title="12.9 ratingPlan"
+      Link="/Content/AdminApi/RatingPlans/RatingPlan.htm" />
+    <TocEntry
+      Title="12.10 system"
+      Link="/Content/AdminApi/SystemServices/System.htm" />
+    <TocEntry
+      Title="12.11 tiering"
+      Link="/Content/AdminApi/TieringCredentials/Tiering.htm" />
+    <TocEntry
+      Title="12.12 usage"
+      Link="/Content/AdminApi/UsageReporting/Usage.htm" />
+    <TocEntry
+      Title="12.13 user"
+      Link="/Content/AdminApi/UserManagement/User.htm" />
+    <TocEntry
+      Title="12.14 whitelist"
+      Link="/Content/AdminApi/Whitelist/Whitelist.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="13. S3 API"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ChapterNumberReset="continue"
+    Link="/Content/S3ApiSupport/S3ApiSupportOverview.htm">
+    <TocEntry
+      Title="13.1 Introduction"
+      Link="/Content/S3ApiSupport/S3ApiSupportOverview.htm">
+      <TocEntry
+        Title="13.1.1 HyperStore Support for the Amazon S3 API"
+        Link="/Content/S3ApiSupport/S3ApiSupportOverview.htm" />
+      <TocEntry
+        Title="13.1.2 Error Responses"
+        Link="/Content/S3ApiSupport/ErrorResponses.htm" />
+      <TocEntry
+        Title="13.1.3 Authenticating Requests (AWS Signature Version 4)"
+        Link="/Content/S3ApiSupport/AuthenticatingRequests.htm" />
+      <TocEntry
+        Title="13.1.4 Common Request Headers"
+        Link="/Content/S3ApiSupport/CommonRequestHeaders.htm" />
+      <TocEntry
+        Title="13.1.5 Common Response Headers"
+        Link="/Content/S3ApiSupport/CommonResponseHeaders.htm" />
+      <TocEntry
+        Title="13.1.6 Access Control List (ACL)"
+        Link="/Content/S3ApiSupport/AccessControlList.htm" />
+      <TocEntry
+        Title="13.1.7 HyperStore Extensions to the S3 API"
+        Link="/Content/S3ApiSupport/HyperStoreExtensions.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="13.2 Operations on the Service"
+      Link="/Content/S3ApiSupport/OperationsOnService/OperationsOnServiceOverview.htm">
+      <TocEntry
+        Title="13.2.1 GET Service"
+        Link="/Content/S3ApiSupport/OperationsOnService/GetService.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="13.3 Operations On Buckets"
+      Link="/Content/S3ApiSupport/OperationsOnBuckets/OperationsOnBucketsOverview.htm">
+      <TocEntry
+        Title="13.3.1 DELETE Bucket"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucket.htm" />
+      <TocEntry
+        Title="13.3.2 DELETE Bucket cors"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketCors.htm" />
+      <TocEntry
+        Title="13.3.3 DELETE Bucket encryption"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketEncryption.htm" />
+      <TocEntry
+        Title="13.3.4 DELETE Bucket lifecycle"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketLifecycle.htm" />
+      <TocEntry
+        Title="13.3.5 DELETE Bucket policy"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketPolicy.htm" />
+      <TocEntry
+        Title="13.3.6 DELETE Bucket replication"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketReplication.htm" />
+      <TocEntry
+        Title="13.3.7 DELETE Bucket tagging"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketTagging.htm" />
+      <TocEntry
+        Title="13.3.8 DELETE Bucket website"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/DeleteBucketWebsite.htm" />
+      <TocEntry
+        Title="13.3.9 GET Bucket (List Objects) Version 1"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketListObjects.htm" />
+      <TocEntry
+        Title="13.3.10 GET Bucket (List Objects) Version 2"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketListObjectsV2.htm" />
+      <TocEntry
+        Title="13.3.11 GET Bucket  acl"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketAcl.htm" />
+      <TocEntry
+        Title="13.3.12 GET Bucket cors"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketCors.htm" />
+      <TocEntry
+        Title="13.3.13 GET Bucket encryption"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketEncryption.htm" />
+      <TocEntry
+        Title="13.3.14 GET Bucket lifecycle"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketLifecycle.htm" />
+      <TocEntry
+        Title="13.3.15 GET Bucket location"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketLocation.htm" />
+      <TocEntry
+        Title="13.3.16 GET Bucket logging"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketLogging.htm" />
+      <TocEntry
+        Title="13.3.17 GET Bucket notification"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketNotification.htm" />
+      <TocEntry
+        Title="13.3.18 GET Bucket object lock configuration"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketObjectLockConfiguration.htm" />
+      <TocEntry
+        Title="13.3.19 GET Bucket Object versions"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketObjectVersions.htm" />
+      <TocEntry
+        Title="13.3.20 GET Bucket policy"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketPolicy.htm" />
+      <TocEntry
+        Title="13.3.21 GET Bucket replication"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketReplication.htm" />
+      <TocEntry
+        Title="13.3.22 GET Bucket tagging"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketTagging.htm" />
+      <TocEntry
+        Title="13.3.23 GET Bucket versioning"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketVersioning.htm" />
+      <TocEntry
+        Title="13.3.24 GET Bucket website"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/GetBucketWebsite.htm" />
+      <TocEntry
+        Title="13.3.25 HEAD Bucket"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/HeadBucket.htm" />
+      <TocEntry
+        Title="13.3.26 List Multipart Uploads"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/ListMultipartUploads.htm" />
+      <TocEntry
+        Title="13.3.27 PUT Bucket"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucket.htm" />
+      <TocEntry
+        Title="13.3.28 PUT Bucket acl"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketAcl.htm" />
+      <TocEntry
+        Title="13.3.29 PUT Bucket cors"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketCors.htm" />
+      <TocEntry
+        Title="13.3.30 PUT Bucket encryption"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketEncryption.htm" />
+      <TocEntry
+        Title="13.3.31 PUT Bucket lifecycle"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketLifecycle.htm" />
+      <TocEntry
+        Title="13.3.32 PUT Bucket logging"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketLogging.htm" />
+      <TocEntry
+        Title="13.3.33 PUT Bucket notification"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketNotification.htm" />
+      <TocEntry
+        Title="13.3.34 PUT Bucket object lock configuration"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketObjectLockConfiguration.htm" />
+      <TocEntry
+        Title="13.3.35 PUT Bucket policy"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketPolicy.htm" />
+      <TocEntry
+        Title="13.3.36 PUT Bucket replication"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketReplication.htm" />
+      <TocEntry
+        Title="13.3.37 PUT Bucket tagging"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketTagging.htm" />
+      <TocEntry
+        Title="13.3.38 PUT Bucket versioning"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketVersioning.htm" />
+      <TocEntry
+        Title="13.3.39 PUT Bucket website"
+        Link="/Content/S3ApiSupport/OperationsOnBuckets/PutBucketWebsite.htm" />
+    </TocEntry>
+    <TocEntry
+      Title="13.4 Operations On Objects"
+      Link="/Content/S3ApiSupport/OperationsObjects/OperationsOnObjectsOverview.htm">
+      <TocEntry
+        Title="13.4.1 Delete Multiple Objects"
+        Link="/Content/S3ApiSupport/OperationsObjects/DeleteMultipleObjects.htm" />
+      <TocEntry
+        Title="13.4.2 DELETE Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/DeleteObject.htm" />
+      <TocEntry
+        Title="13.4.3 DELETE Object tagging"
+        Link="/Content/S3ApiSupport/OperationsObjects/DeleteObjectTagging.htm" />
+      <TocEntry
+        Title="13.4.4 GET Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObject.htm" />
+      <TocEntry
+        Title="13.4.5 GET Object acl"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObjectAcl.htm"></TocEntry>
+      <TocEntry
+        Title="13.4.6 GET Object legal hold"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObjectLegalHold.htm" />
+      <TocEntry
+        Title="13.4.7 GET Object retention"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObjectRetention.htm" />
+      <TocEntry
+        Title="13.4.8 GET Object tagging"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObjectTagging.htm" />
+      <TocEntry
+        Title="13.4.9 GET Object torrent"
+        Link="/Content/S3ApiSupport/OperationsObjects/GetObjectTorrent.htm" />
+      <TocEntry
+        Title="13.4.10 HEAD Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/HeadObject.htm" />
+      <TocEntry
+        Title="13.4.11 OPTIONS Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/OptionsObject.htm" />
+      <TocEntry
+        Title="13.4.12 POST Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/PostObject.htm" />
+      <TocEntry
+        Title="13.4.13 POST Object restore"
+        Link="/Content/S3ApiSupport/OperationsObjects/PostObjectRestore.htm" />
+      <TocEntry
+        Title="13.4.14 PUT Object"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObject.htm" />
+      <TocEntry
+        Title="13.4.15 PUT Object legal hold"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObjectLegalHold.htm" />
+      <TocEntry
+        Title="13.4.16 PUT Object retention"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObjectRetention.htm" />
+      <TocEntry
+        Title="13.4.17 PUT Object - Copy"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObjectCopy.htm" />
+      <TocEntry
+        Title="13.4.18 PUT Object acl"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObjectAcl.htm" />
+      <TocEntry
+        Title="13.4.19 PUT Object tagging"
+        Link="/Content/S3ApiSupport/OperationsObjects/PutObjectTagging.htm" />
+      <TocEntry
+        Title="13.4.20 Abort Multipart Upload"
+        Link="/Content/S3ApiSupport/OperationsObjects/AbortMultipartUpload.htm" />
+      <TocEntry
+        Title="13.4.21 Complete Multipart Upload"
+        Link="/Content/S3ApiSupport/OperationsObjects/CompleteMultipartUpload.htm" />
+      <TocEntry
+        Title="13.4.22 Initiate Multipart Upload"
+        Link="/Content/S3ApiSupport/OperationsObjects/InitiateMultipartUpload.htm" />
+      <TocEntry
+        Title="13.4.23 List Parts"
+        Link="/Content/S3ApiSupport/OperationsObjects/ListParts.htm" />
+      <TocEntry
+        Title="13.4.24 Upload Part"
+        Link="/Content/S3ApiSupport/OperationsObjects/UploadPart.htm" />
+      <TocEntry
+        Title="13.4.25 Upload Part - Copy"
+        Link="/Content/S3ApiSupport/OperationsObjects/UploadPartCopy.htm" />
+    </TocEntry>
+  </TocEntry>
+  <TocEntry
+    Title="14. IAM API"
+    Link="/Content/IAM/IamIntro.htm">
+    <TocEntry
+      Title="14.1 Identity and Access Management (IAM)"
+      Link="/Content/IAM/IamIntro.htm" />
+    <TocEntry
+      Title="14.2 IAM Supported Actions"
+      Link="/Content/IAM/IamActions.htm" />
+    <TocEntry
+      Title="14.3 IAM Supported Policy Document Elements"
+      Link="/Content/IAM/IamPolicies.htm"
+      StartSection="false" />
+    <TocEntry
+      Title="14.4 IAM Common Parameters"
+      Link="/Content/IAM/IamCommonParameters.htm" />
+    <TocEntry
+      Title="14.5 IAM Common Errors"
+      Link="/Content/IAM/IamCommonErrors.htm" />
+    <TocEntry
+      Title="14.6 Extension: IAM Actions for HyperStore Admin Tasks"
+      Link="/Content/IAM/IamRbacExtensions.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="15. SQS API"
+    Link="/Content/SQS/SqsIntro.htm">
+    <TocEntry
+      Title="15.1 Simple Queue Service (SQS)"
+      Link="/Content/SQS/SqsIntro.htm" />
+    <TocEntry
+      Title="15.2 SQS Supported Actions"
+      Link="/Content/SQS/SqsActions.htm" />
+  </TocEntry>
+</CatapultToc>

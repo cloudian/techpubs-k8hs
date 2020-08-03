@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Title"
+    Link="/Content/x-Front Matter/TitleInstallGuide.htm"
+    BreakType="chapter"
+    PageType="title"
+    StartSection="false"
+    PageNumberReset="continue"
+    PageLayout="/Content/Resources/PageLayouts/FrontMatter.flpgl" />
+  <TocEntry
+    Title="Confidentiality"
+    Link="/Content/x-Front Matter/Confidentiality.htm"
+    BreakType="chapter"
+    PageType="right"
+    PageNumberReset="reset"
+    PageNumber="0"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/FrontMatter.flpgl" />
+  <TocEntry
+    Title="TOC"
+    Link="/Content/x-Front Matter/TOC.htm"
+    BreakType="chapter"
+    PageType="right"
+    PageNumberReset="reset"
+    PageNumber="0"
+    StartSection="false"
+    PageLayout="/Content/Resources/PageLayouts/FrontMatter.flpgl" />
+  <TocEntry
+    Title="Introduction"
+    Link="/Content/Installation/InstallationOverview.htm"
+    BreakType="chapter"
+    ChapterNumberReset="reset"
+    ChapterNumber="1"
+    StartSection="false"
+    PageNumberReset="reset"
+    SectionNumberReset="continue"
+    VolumeNumberReset="same"
+    ReplaceMergeNode="false"
+    PageType="firstright"
+    PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl"
+    PageNumber="1" />
+  <TocEntry
+    Title="Preparing Your Environment"
+    BreakType="chapter"
+    PageType="firstright"
+    Link="/Content/Installation/EnvironmentPreparation/EnvironmentOverview.htm"
+    StartSection="false"
+    PageNumberReset="continue"
+    PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl">
+    <TocEntry
+      Title="DNS Set-Up"
+      Link="/Content/Installation/EnvironmentPreparation/DnsSetup.htm"
+      BreakType="pageLayout"
+      PageType="continue"
+      StartSection="false"
+      PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl" />
+    <TocEntry
+      Title="Load Balancing"
+      Link="/Content/Installation/EnvironmentPreparation/LoadBalancing.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Preparing Your Nodes"
+    BreakType="chapter"
+    PageType="firstright"
+    Link="/Content/Installation/NodePreparation/NodePrepOverview.htm"
+    StartSection="false"
+    PageNumberReset="continue"
+    PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl">
+    <TocEntry
+      Title="Host Hardware and OS Requirements"
+      Link="/Content/Installation/NodePreparation/HardwareOs.htm" />
+    <TocEntry
+      Title="Installing HyperStore Prerequisites"
+      Link="/Content/Installation/NodePreparation/Prerequisites.htm" />
+    <TocEntry
+      Title="Configuring Data Disks"
+      Link="/Content/Installation/NodePreparation/NicsDisks.htm" />
+    <TocEntry
+      Title="Running the Pre-Install Checks Script"
+      Link="/Content/Installation/NodePreparation/PreInstallCheck.htm" />
+  </TocEntry>
+  <TocEntry
+    Title="Installing a New HyperStore System"
+    Link="/Content/Installation/InstallingHyperStoreSoftware.htm"
+    BreakType="chapter"
+    PageType="firstright"
+    StartSection="false"
+    PageNumberReset="continue"
+    PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl" />
+  <TocEntry
+    Title="Reference"
+    Link="/Content/Installation/Reference/InstallReferenceOverview.htm"
+    BreakType="chapter"
+    PageType="firstright"
+    StartSection="false"
+    PageNumberReset="continue"
+    PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl">
+    <TocEntry
+      Title="Installation Troubleshooting"
+      Link="/Content/Installation/Reference/InstallationTroubleshooting.htm"
+      BreakType="pageLayout"
+      StartSection="false"
+      PageLayout="/Content/Resources/PageLayouts/CloudianChapters.flpgl"
+      PageType="continue" />
+    <TocEntry
+      Title="HyperStore Listening Ports"
+      Link="/Content/Installation/Reference/Ports.htm"></TocEntry>
+    <TocEntry
+      Title="Outbound Internet Access"
+      Link="/Content/Installation/Reference/OutboundInternet.htm" />
+    <TocEntry
+      Title="File System Requirements"
+      Link="/Content/Installation/Reference/FileSystemRequirements.htm" />
+    <TocEntry
+      Title="Cluster Survey File (survey.csv)"
+      Link="/Content/Installation/Reference/SurveyFile.htm" />
+    <TocEntry
+      Title="cloudianInstall.sh Command Line Options"
+      Link="/Content/Installation/Reference/InstallerSyntax.htm"></TocEntry>
+    <TocEntry
+      Title="system_setup.sh Command Line Options"
+      Link="/Content/Installation/Reference/SystemSetupSyntax.htm" />
+  </TocEntry>
+</CatapultToc>

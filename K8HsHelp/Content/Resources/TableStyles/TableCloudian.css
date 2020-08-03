@@ -1,0 +1,652 @@
+/* MadCap Table Style: */
+
+/*<meta Version="9" />*/
+
+mcTableStyle
+{
+	border-collapse: separate;
+	border-spacing-y: 0;
+	border-spacing-x: 0;
+	name: TableCloudian;
+	cell-padding-left: 3px;
+	cell-padding-right: 3px;
+	cell-padding-top: 2px;
+	cell-padding-bottom: 2px;
+	max-id: 9;
+	border-top-style: solid;
+	border-top-width: 1px;
+}
+
+mcTableColumnStyle
+{
+	span: 1;
+	name: Regular;
+	id: 0;
+	separator-style: solid;
+	separator-width: 1px;
+	separator-color: #ffffff;
+}
+
+mcTableHeadStyle
+{
+	span: 1;
+	separator-style: solid;
+	separator-width: 1px;
+	separator-color: #696969;
+	background-color: #bfd62f;
+	name: Header1;
+	id: 2;
+}
+
+mcTableBodyStyle
+{
+	span: 1;
+	id: 8;
+	name: LightRows;
+	background-color: #edf0f1;
+	separator-style: solid;
+	separator-width: 1px;
+	separator-color: #ffffff;
+}
+
+mcTableBodyStyle
+{
+	span: 1;
+	name: DarkerRows;
+	id: 1;
+	background-color: #e1e4e6;
+	separator-style: solid;
+	separator-width: 1px;
+	separator-color: #ffffff;
+}
+
+
+/* Cell Styles: */
+ 
+.TableStyle-TableCloudian
+{
+	border-collapse: separate;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-spacing: 0px 0px;
+}
+
+.TableStyle-TableCloudian-Column-Regular
+{
+	
+}
+
+.TableStyle-TableCloudian-Head-Header1
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadI-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadI-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadE-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+	background-color: #bfd62f;
+	border-bottom-width: 1px;
+	border-bottom-color: #696969;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-HeadE-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadF-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+	border-bottom-width: 1px;
+	border-bottom-color: #696969;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-HeadF-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadH-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadH-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadD-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+	border-bottom-width: 1px;
+	border-bottom-color: #696969;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-HeadD-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadC-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadC-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadB-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadB-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadA-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadA-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-HeadG-Regular-Header1
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #bfd62f;
+}
+
+.TableStyle-TableCloudian-HeadG-Regular-Header1 p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootI-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootI-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootE-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-FootE-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootF-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootF-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootH-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-FootH-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootD-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootD-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootC-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootC-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootB-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-FootB-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootA-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootA-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-FootG-Regular-
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+.TableStyle-TableCloudian-FootG-Regular- p
+{
+	
+}
+
+.TableStyle-TableCloudian-Body-LightRows
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyI-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+}
+
+.TableStyle-TableCloudian-BodyI-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyE-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyE-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyF-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyF-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyH-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyH-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyD-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyD-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyC-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+}
+
+.TableStyle-TableCloudian-BodyC-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyB-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyB-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyA-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+}
+
+.TableStyle-TableCloudian-BodyA-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyG-Regular-LightRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #edf0f1;
+}
+
+.TableStyle-TableCloudian-BodyG-Regular-LightRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-Body-DarkerRows
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyI-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+}
+
+.TableStyle-TableCloudian-BodyI-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyE-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyE-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyF-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyF-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyH-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyH-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyD-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+	border-bottom-width: 1px;
+	border-bottom-color: #ffffff;
+	border-bottom-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyD-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyC-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+}
+
+.TableStyle-TableCloudian-BodyC-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyB-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+	border-right-width: 1px;
+	border-right-color: #ffffff;
+	border-right-style: solid;
+}
+
+.TableStyle-TableCloudian-BodyB-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyA-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+}
+
+.TableStyle-TableCloudian-BodyA-Regular-DarkerRows p
+{
+	
+}
+
+.TableStyle-TableCloudian-BodyG-Regular-DarkerRows
+{
+	padding-left: 3px;
+	padding-right: 3px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	background-color: #e1e4e6;
+}
+
+.TableStyle-TableCloudian-BodyG-Regular-DarkerRows p
+{
+	
+}
+
+

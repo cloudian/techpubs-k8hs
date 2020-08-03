@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PageStyles>
+    <Page Width="7in" Height="9in" Padding="1in" PageSize="A4" PaddingLeft="1in" PaddingRight="1in" PaddingTop="0" PaddingBottom="0" PageType="title" Name="Title" Orientation="portrait" BleedLeft="0.25in" BleedRight="0.25in" BleedTop="0.25in" BleedBottom="0.25in">
+        <Frame Flow="body" ColumnCount="1" ColumnGap="0.25in" ColumnDivider="Solid 1pt Black" Width="602px" Height="1187px" X="0px" Y="-20px" Anchors="Left,Right,Top,Bottom" Right="0px" Bottom="-44px">
+        </Frame>
+    </Page>
+    <Page Width="7in" Height="9in" Padding="1in" PageSize="A4" PaddingLeft="1in" PaddingRight="1in" PaddingTop="0" PaddingBottom="0" PageType="emptyleft" Orientation="portrait" BleedLeft="0.25in" BleedRight="0.25in" BleedTop="0.25in" BleedBottom="0.25in">
+        <Frame X="102px" Y="999px" Width="452px" Height="41px" Flow="footer" Right="48px" Bottom="83px" TextAlign="center">
+            <Content>
+                <xhtml:html xmlns:xhtml="http://www.w3.org/1999/xhtml">
+                    <xhtml:body>
+                        <xhtml:p>This page left intentionally blank.</xhtml:p>
+                    </xhtml:body>
+                </xhtml:html>
+            </Content>
+        </Frame>
+    </Page>
+    <Page Width="7in" Height="9in" Padding="1in" PageSize="A4" PaddingLeft="1in" PaddingRight="1in" PaddingTop="1in" PaddingBottom="1in" PageType="left" Name="Left" Orientation="portrait" BleedBottom="0.25in" BleedTop="0.25in" BleedRight="0.25in" BleedLeft="0.25in">
+        <Frame Flow="body" ColumnCount="1" ColumnGap="0.25in" ColumnDivider="Solid 1pt Black" Width="602px" Height="846px" X="0px" Y="0px" Anchors="Left,Right,Top,Bottom" Right="0px" Bottom="85px">
+        </Frame>
+    </Page>
+    <Page Width="7in" Height="9in" Padding="1in" PageSize="A4" PaddingLeft="1in" PaddingRight="1in" PaddingTop="1in" PaddingBottom="1in" PageType="right" Name="Right" Orientation="portrait" BleedBottom="0.25in" BleedTop="0.25in" BleedRight="0.25in" BleedLeft="0.25in">
+        <Frame Flow="body" ColumnCount="1" ColumnGap="0.25in" ColumnDivider="Solid 1pt Black" Width="602px" Height="846px" X="0px" Y="0px" Right="0px" Bottom="85px" Anchors="Left,Right,Top,Bottom">
+        </Frame>
+    </Page>
+</PageStyles>

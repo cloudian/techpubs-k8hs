@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultTarget
+  Version="2"
+  Comment="HyperStore Installation Guide for print"
+  Type="PDF"
+  Destinations=""
+  MasterToc="/Project/TOCs/InstallGuidePDF.fltoc"
+  ConditionTagExpression="include[Cloudian.PrintOnly] exclude[Cloudian.HelpEndUserOnly or Cloudian.HelpGroupAdminOnly or Cloudian.HelpSysAdminOnly or Cloudian.QuickStartApplianceOnly or Cloudian.QuickStartAwsMmsOnly or Cloudian.QuickStartBinOnly or Cloudian.QuickStartIsoOnly or Cloudian.ScreenOnly] "
+  InjectEmptyPages="true"
+  PatchHeadingLevels="true"
+  OutputFile="HyperStoreInstallGuide">
+  <PrintedOutput
+    CollapseMargins="true"
+    GenerateTOCProxy="false"
+    GenerateIndexProxy="false"
+    GenerateGlossaryProxy="false"
+    ExpandingTextConversion="expand"
+    PopupConversion="remove-body" />
+  <Destinations></Destinations>
+  <DocumentProperties
+    Title="HyperStore Installation Guide"
+    Author="Cloudian, Inc." />
+  <PDF
+    ShowUsedBookmarks="false"
+    CollapsedBookmarks="true"
+    InitialMagnification="Fit" />
+</CatapultTarget>

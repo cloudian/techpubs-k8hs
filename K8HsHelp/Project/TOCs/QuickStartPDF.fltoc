@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultToc
+  Version="1">
+  <TocEntry
+    Title="Installing HyperStore"
+    Link="/Content/QuickStart/QuickStart.htm"
+    BreakType="chapter"
+    PageType="firstright"
+    StartSection="false"
+    PageNumberReset="reset"
+    PageLayout="/Content/Resources/PageLayouts/CloudianQuickStart.flpgl"
+    PageNumber="1" />
+</CatapultToc>

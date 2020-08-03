@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CatapultGlossary
+  conditions="">
+  <GlossaryEntry
+    glossTerm="Glossary.Term0"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>vNode</Term>
+    </Terms>
+    <Definition
+      Link="">A vNode or virtual node is a logical storage unit identified by a numerical "token" from within the token space used by the HyperStore consistent hashing scheme. The system automatically allocates tokens to each HyperStore host upon installation, with hosts with larger storage capacities receiving more tokens than hosts with less capacity. Each host's tokens are allocated among the host's HyperStore data disks, in a balanced manner. This establishes multiple vNodes on each host, with each vNode being responsible for storage of object data associated with a token range that spans from the vNode's own assigned token down to the next-lower token from within the hashing scheme. The vNode mechanism provides a way of intelligently dispersing object replicas and erasure coded fragments across the cluster.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term1"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Erasure Coding</Term>
+    </Terms>
+    <Definition
+      Link="">Erasure coding is an alternative means of ensuring data availability and persistence (the other method being replication). With erasure coding each object is encoded into a configurable number (known as the "k" value) of data fragments plus a configurable number (the "m" value) of redundant parity fragments. Each of an object’s "k" plus "m" fragments is unique, and each fragment is stored on a different node. The object can be decoded from any "k" number of fragments. Therefore the object remains readable even if "m" number of nodes are unavailable. Compared to replication, erasure coding is typically more space-efficient and requires somewhat more processing overhead.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term2"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Replication</Term>
+    </Terms>
+    <Definition
+      Link="">Replication is a means of achieving high availability and persistence for data objects by creating and storing multiple instances of the object with each instance residing on a different node. With "3X replication", for example, three instances (replicas) of each object are stored, with each instance on a different node. Note that with replication there is no notion of an "original" or copies of an original -- rather, each stored instance of an object is of equal primacy and each is called a replica.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term3"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Consistency Levels</Term>
+    </Terms>
+    <Definition
+      Link="">Consistency levels are configurable requirements regarding how many replicas or erasure coded fragments must be successfully written in order for the system to return a success response to a client that has submitted an object write request. You can set consistency levels to be strict ("strong consistency") or less strict ("eventual consistency"), with the latter relying on the system's automated data repair mechanisms to subsequently create any missing replicas or fragments. For replicated data, you can also configure consistency requirements for read operations.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term4"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Region</Term>
+    </Terms>
+    <Definition
+      Link="">A region is an integrated cluster of HyperStore nodes deployed across one or multiple data centers within a particular geographic area. A region has its own unique S3 service endpoint and its own unique inventory of stored data objects. You can implement your HyperStore system as a single service region or as multiple geographically dispersed service regions. In a multi-region system, service users have access to the entire system and can choose a host region for each storage bucket that they create, based on considerations such as proximity or regulatory requirements.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term5"
+    Stem=""
+    IgnoreCase="false"
+    TermClass="Popup">
+    <Terms>
+      <Term>Cluster</Term>
+    </Terms>
+    <Definition
+      Link="">In a HyperStore system, a "cluster" is the full set of nodes in a particular service region. Thus a cluster may span multiple data centers, if those data centers are part of the same service region.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term6"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Auto-Tiering</Term>
+    </Terms>
+    <Definition
+      Link="">Auto-tiering is the automated migration of data objects to a designated destination system (such as the Amazon S3 cloud), based on configurable criteria such as the time since the object was created or the time since the object was last accessed. Auto-tiering can be enabled and configured for each storage bucket.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term7"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Object Storage</Term>
+    </Terms>
+    <Definition
+      Link="">Object storage is a highly scalable and flexible form of data storage characterized by 1) a "flat" rather than hierarchical structure for logical organization of files (objects); 2) a unique identifier for each object, typically in the form of a URI; and 3) the ability to associate rich metadata with each object</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term8"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Quality of Service (QoS)</Term>
+    </Terms>
+    <Definition
+      Link="">The Quality of Service feature lets you set limits on HyperStore service usage by user groups and individual users. For groups and for users, you can set caps on traffic rates as well as storage utiliization.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term9"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Node</Term>
+    </Terms>
+    <Definition
+      Link="">In a HyperStore system, a node is a single host machine on which HyperStore software is installed. A node can be a physical host machine or a virtual machine (VM). On each node, each HyperStore data disk hosts multiple "vNodes" (virtual nodes).</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term10"
+    Stem=""
+    IgnoreCase="false"
+    TermClass="Popup">
+    <Terms>
+      <Term>S3 Service</Term>
+    </Terms>
+    <Definition
+      Link="">On each node in your system, the S3 Service receives and processes inbound requests from S3 client applications. In the course of processing S3 requests, the S3 Service interfaces with all the other major services in your HyperStore system, including the Redis databases, Cassandra, and the HyperStore Service. In a typical deployment you would use a load balancer to distribute inbound S3 requests across the multiple S3 Service nodes in your HyperStore system.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term11"
+    Stem=""
+    IgnoreCase="false"
+    TermClass="Popup">
+    <Terms>
+      <Term>HyperStore Service</Term>
+    </Terms>
+    <Definition
+      Link="">On each node in your system, the HyperStore Service manages the HyperStore File System (HSFS), a region of the Linux file system in which replicated or erasure coded S3 object data is stored. In response to put and get requests sent by the S3 Service (which processes requests from S3 client applications), the HyperStore Service writes to and reads from the HSFS. The HyperStore Service also manages system operations such as repairing or cleaning of S3 object data (as invoked by "hsstool" commands -- the "hss" stands for HyperStore Service).</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term12"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Admin Service</Term>
+    </Terms>
+    <Definition
+      Link="">On each node, the Admin Service processes HyperStore Admin API requests incoming from the CMC or from other HTTP REST client tools that you may use. The Admin API implements a wide range of system functions including user provisioning, storage policy management, and usage reporting.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term13"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Cassandra</Term>
+    </Terms>
+    <Definition
+      Link="">Cassandra is an enterprise class open source distributed database management system that HyperStore uses for storing a variety of metadata in support of implementing an S3 object storage service. HyperStore also uses Cassandra functionality to intelligently distribute replicated or erasure coded S3 object data across the multiple nodes in a HyperStore system. Cassandra runs on every node in the system.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term14"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Redis Credentials</Term>
+    </Terms>
+    <Definition
+      Link="">Implemented on Redis -- an open source, high performance key-value data store -- the Redis Credentials database stores end user credentials and other metadata in support of the HyperStore S3 object storage service. One Redis Credentials instance per your entire HyperStore system will serve as the "master" (servicing writes to the database), and two Redis Credentials instances per data center will serve as "slaves" (syncing with the master and servicing database reads). In the event of problems with the master instance, the master role will fail over to one of the slaves. Note that in typical system of several or many nodes, not all nodes will be running Redis Credentials.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term15"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Redis QoS</Term>
+    </Terms>
+    <Definition
+      Link="">Implemented on Redis -- an open source, high performance key-value data store -- the Redis QoS database stores metadata in support of HyperStore quality of service functionality. One Redis QoS instance per service region will serve as the "master" (servicing writes to the database), and one Redis QoS instance per data center will serve as a "slave" (syncing with the master and servicing database reads). In the event of problems with the master instance, the master role will fail over to the slave. Note that in typical system of several or many nodes, not all nodes will be running Redis QoS.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term16"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Redis Monitor</Term>
+    </Terms>
+    <Definition
+      Link="">The Redis Monitor monitors the status of the Redis Credentials master instance and the Redis QoS master instance(s), and manages the automatic fail-over of the master role to one of the slave instances in the event that the master goes down. In your entire HyperStore system there will be one primary Redis Monitor instance and one backup Redis Monitor instance, with the backup automatically taking over in the event that the primary goes down.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term17"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>CMC</Term>
+    </Terms>
+    <Definition
+      Link="">The Cloudian Management Console (CMC) provides a GUI for interfacing with your HyperStore system. The CMC provides three broad categories of functionality: 1) Uploading to or downloading from the object store (for this the CMC acts as an S3 client application); 2) User provisioning and management (for this the CMC invokes the Admin API); and 3) System monitoring and management (for this the CMC invokes the Admin API and hsstool). The CMC runs on every node in your system and can be accessed with a standard web browser.</Definition>
+  </GlossaryEntry>
+  <GlossaryEntry
+    glossTerm="Glossary.Term18"
+    TermClass="Popup"
+    Stem=""
+    IgnoreCase="false">
+    <Terms>
+      <Term>Puppet</Term>
+    </Terms>
+    <Definition
+      Link="">Puppet is an open source technology for centrally managing the configuration of a cluster of nodes. HyperStore uses Puppet for initial HyperStore set-up during installation and for ongoing configuration management of the system. In your entire HyperStore system, one node acts as the Puppet "master" on which configuration templates for the cluster are stored and can be edited. On every node in the system resides a Puppet "agent", with each agent querying and syncing with the master, either on an interval (if the agents are left running as daemons, as they are by default) or in response to a triggering action that you can initiate with the HyperStore installation script.</Definition>
+  </GlossaryEntry>
+</CatapultGlossary>

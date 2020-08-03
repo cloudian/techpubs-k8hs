@@ -1,0 +1,459 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="12227" MadCap:lastWidth="899">
+    <head>
+        <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
+    </head>
+    <body>
+        <p style="text-align: center;"><span style="font-size: 18pt; color: #dae691;"><span style="color: #b5cb2b;font-weight: bold;">HyperIQ Quick Start</span></span>
+        </p>
+        <p>Cloudian HyperIQ™ is a solution for monitoring the health and performance of a Cloudian HyperStore system. This document describes how to install HyperIQ, connect it to your HyperStore system, and start using it.</p>
+        <ul>
+            <li>
+                <MadCap:xref href="#Requirem">Requirements</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Installi">Installing HyperIQ as a Virtual Appliance</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Installi2">Installing HyperIQ in a Docker Environment</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Getting">Getting Started with HyperIQ</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Managing">Managing a HyperIQ Node</MadCap:xref>
+            </li>
+        </ul>
+        <h2 id="h2_quick_start"><a name="Requirem"></a>Requirements</h2>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
+            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 144px;" />
+            <col class="TableStyle-TableCloudian-Column-Regular" />
+            <thead>
+                <tr class="TableStyle-TableCloudian-Head-Header1">
+                    <th class="TableStyle-TableCloudian-HeadE-Regular-Header1">Requirement</th>
+                    <th class="TableStyle-TableCloudian-HeadD-Regular-Header1">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows">Virtualization or<br />containerization platform</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <p>HyperIQ is available in two forms, supporting different types of operating platforms:</p>
+                        <ul>
+                            <li>A&#160;virtual appliance, for installation on VMware (ESXi 5.5 or newer, or Workstation 10.x or newer) or VirtualBox.</li>
+                            <li>A containerized application, for installation on Docker (requires docker 19.03 or newer <b>and</b> docker-compose 1.17 or newer; Kubernetes is not currently supported)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows">HyperIQ OVA or installer</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows">
+                        <p>From the Cloudian Support portal, download either:</p>
+                        <ul>
+                            <li><em>hyperiq-1.1.0.ova</em>, for installing HyperIQ as a virtual appliance </li>
+                            <li><em>hyperiq-1.1.0.bin</em> or <em>hyperiq-1.1.0.app</em> or <em>hyperiq-1.1.0.exe</em>, for installing HyperIQ in a Docker environment on Linux or MacOS or Windows, respectively</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows">HyperStore system</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <p>HyperIQ has been verified to work with HyperStore 7.1 and newer. </p>
+                        <p>A&#160;single HyperIQ instance can serve a full HyperStore system, even if the HyperStore system spans multiple data centers and/or multiple service regions. </p>
+                        <p>To set up HyperIQ you will need the IP address of one of your HyperStore nodes -- it can be any node -- and the <em>root</em> user password for SSH access to the node (or the <em>sa_admin</em> user password if you use the HyperStore Shell to manage your HyperStore nodes). Alternatively, for <em>root</em> user access you can use an SSH key rather than a password.</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyB-Regular-DarkerRows">HyperIQ access to <br />HyperStore</td>
+                    <td class="TableStyle-TableCloudian-BodyA-Regular-DarkerRows">
+                        <p>HyperIQ must be able to access the following ports on every HyperStore node in your system, in all of your HyperStore data centers and service regions:</p>
+                        <ul>
+                            <li>22 (only during HyperIQ set-up)</li>
+                            <li>9999 (for ongoing collection of HyperStore health and performance metrics)</li>
+                        </ul>
+                        <p>If you are using a third party firewall to restrict access to HyperStore, you must configure the firewall to allow HyperIQ to access these ports on each HyperStore node.</p>
+                        <p>If you are running HyperStore 7.2.0 or 7.2.1 and are using the built-in HyperStore Firewall, you must disable the HyperStore Firewall if you want to use HyperIQ. The HyperStore Firewall in HyperStore 7.2.0 and 7.2.1 is incompatible with using HyperIQ. You can re-enable the HyperStore Firewall when you upgrade to HyperStore 7.2.2 (in this version the HyperStore Firewall does support HyperIQ). For instructions on disabling the HyperStore Firewall, in your HyperStore 7.2.x documentation see section 4.3.2 "HyperStore Firewall".</p>
+                        <p class="Important" MadCap:autonum="&lt;b&gt;IMPORTANT ! &#160;&lt;/b&gt;">Do not disable the HyperStore Firewall if your HyperStore 7.2.0 or 7.2.1 deployment lacks a dedicated internal network for HyperStore nodes (for context see Knowledge Base article # 000002428 on the Cloudian Support Portal). Instead, wait until you've upgraded to HyperStore 7.2.2 before using HyperIQ.</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h2 id="h2_quick_start"><a name="Installi"></a>Installing HyperIQ as a Virtual Appliance</h2>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">This section describes how to install HyperIQ version 1.1 as a virtual appliance. For installing HyperIQ in an existing Docker environment, jump ahead to <MadCap:xref href="#Installi2">Installing HyperIQ in a Docker Environment</MadCap:xref>.</p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;"><b>Upgrade to HyperIQ 1.1 from the HyperIQ 1.0 virtual appliance is not supported.</b> If you have been using HyperIQ 1.0, you can do a fresh installation of HyperIQ 1.1 as a separate VM, and then continue to use HyperIQ 1.0 for a while until your HyperIQ 1.1 application has accumulated enough HyperStore monitoring data to meet your needs.</p>
+        <h3 id="h3_quick_start">Deploying the HyperIQ VM</h3>
+        <p>Use your virtualization platform console to deploy a new virtual machine (VM) from the HyperIQ OVA file.</p>
+        <p>For example, for VMware ESXi:</p>
+        <ol>
+            <li>From the device on which you downloaded the HyperIQ OVA file, connect to your ESXi Server console and log in.</li>
+        </ol>
+        <ol MadCap:continue="true">
+            <li>On the left side of the ESXi console, select <b>Virtual Machines</b>.</li>
+            <li>Click <b>Create / Register VM</b>. This launches the <b>New virtual machine</b> creation wizard.</li>
+            <li>For the VM creation type select “Deploy a virtual machine from an OVF or OVA file”, then click <b>Next</b>.</li>
+            <li>Enter your desired name for the virtual machine, then click in the file selection area of the wizard screen and browse to the HyperIQ OVA file that you downloaded. After selecting the OVA file, click <b>Next</b>.</li>
+            <li>In the remaining screens of the VM&#160;creation wizard, accept the default values (or make adjustments if you wish).</li>
+            <li>In the wizard's <b>Ready to complete</b> screen, review the attributes of the new VM and then click <b>Finish</b>. </li>
+        </ol>
+        <div class="Indent">
+            <p>Although the wizard will close and the new VM&#160;will appear in <b>Virtual machines</b> list within seconds, it will take some time -- perhaps 10-15 minutes depending on your environment -- for creation of the VM&#160;to complete. You can track the progress by opening the <b>Recent tasks</b> panel at the bottom of the <b>Virtual machines</b> list.</p>
+        </div>
+        <p>The HyperIQ VM that is created has these specs:</p>
+        <ul>
+            <li>2 CPU cores, 8GB RAM, one 150GB disk for the OS and data</li>
+            <li>OS = Ubuntu Linux 64-bit</li>
+            <li>hostname = hyperiq</li>
+        </ul>
+        <p>The mature open source technologies Prometheus and Grafana, which HyperIQ leverages for the collection, analysis, and visualization of HyperStore monitoring data, are pre-installed on the HyperIQ VM.</p>
+        <p class="Important" MadCap:autonum="&lt;b&gt;IMPORTANT ! &#160;&lt;/b&gt;">The HyperIQ VM stores its data locally, on the 150GB disk, without any replication. In a production environment you should take appropriate precautions to improve data durability, such as performing regular backups of the VM. </p>
+        <h3 id="h3_quick_start">Integrating the HyperIQ VM with HyperStore</h3>
+        <p>If the HyperIQ VM is not already powered on, power it on now. Then access the VM's console, logging in with user name <b>cloudian</b> and password <b>Cloudian1!</b></p>
+        <p>For example, for VMware ESXi: </p>
+        <ol>
+            <li>In the <b>Virtual machines</b> list, click the newly created VM.</li>
+            <li>In the VM's administration screen, click <b>Console</b>, then from the drop-down list choose where you want the console to display (such as within the same browser tab or in a different tab).</li>
+            <li>Log in with user name <b>cloudian</b> and password <b>Cloudian1!</b>.</li>
+        </ol>
+        <p>When prompted, create a new password for the 'cloudian' user. (The change password prompt will require you first to enter again your "current UNIX password", which is <b>Cloudian1!</b>).</p>
+        <p>Once you're logged in, a HyperIQ installer tool is available to lead you through the process of integrating HyperIQ with your HyperStore cluster. To launch the installer, enter this command:</p><pre class="large" xml:space="preserve">$ iqinstall</pre>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">By default during the installation process you will need to supply a password so that HyperIQ can access HyperStore via SSH as the <em>root</em> user (or as the <em>sa_admin</em> user if you have configured your HyperStore system to use the HyperStore Shell). If instead of a password you want to use an SSH key that you have already installed on the HyperIQ host, launch the installer as <em>iqinstall -k &lt;ssh key filename&gt;</em>. The option of using an SSH key rather than a password is supported for <em>root</em> user access only. For accessing HyperStore as the <em>sa_admin</em> user, only password authentication is supported currently.</p>
+        <p>When you launch the installer you will be first prompted for configure basic networking settings for the HyperIQ node, such as hostname or FQDN, IP address, networking mode (DHCP or static), and so on. At some prompts a default value is displayed, which if you wish you can accept by pressing Enter. </p>
+        <p>Once the installer applies the network settings, it completes the installation of HyperIQ packages and then prompts you to provide the information needed to integrate HyperIQ with your HyperStore system. When prompted by the installer, provide the IP address of one of your HyperStore nodes (it can be any node, and the IP address <b>must be reachable by HyperIQ</b>), and the user as which to connect to HyperStore (<em>root</em> or <em>sa_admin</em>), and that user's password. Note that the password prompt will not appear if you're using an SSH&#160;key instead. From the one HyperStore IP address that you provide, the HyperIQ installer will automatically obtain the IP addresses of the rest of your HyperStore nodes. The installer then installs "exporters" on each HyperStore node (the exporters make HyperStore monitoring statistics available to HyperIQ). If your HyperStore system spans multiple data centers and/or multiple service regions, the HyperIQ installer installs exporters on all of your HyperStore nodes in all data centers and service regions. As its final step the installer configures Prometheus and Grafana on the HyperIQ VM. </p>
+        <p> After the installer completes and returns you to the console prompt, you can exit the console.</p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For information about managing an HyperIQ node, see <MadCap:xref href="#Managing">Managing a HyperIQ Node</MadCap:xref></p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For its access to port 9999 on your HyperStore nodes, HyperIQ uses HTTPS (TLS) with Basic Authentication. The HyperIQ setup tool automatically configures these security mechanisms  on HyperIQ and the HyperStore nodes, using a self-signed certificate for TLS and a randomly generated password for Basic Authentication. </p>
+        <h3 id="h3_quick_start"><a name="Addition"></a>Additional Steps If Your HyperStore Cluster Uses an Inaccessible Private Network</h3>
+        <p>If your HyperStore nodes are configured to use a private network for intra-cluster communication and your HyperIQ node is not attached to that private network, extra steps are required to successfully integrate HyperIQ with your HyperStore cluster:</p>
+        <ol>
+            <li>As described in the preceding section, during the initial HyperIQ installation run you should provide a <b>reachable</b> IP address for one HyperStore node (which would be the node's public IP address, if HyperIQ is not on the HyperStore nodes' private network). Using this reachable address, HyperIQ retrieves from that HyperStore node the HyperStore "service map" (<em>cloudianservicemap.json</em>). However, because the HyperStore node IP addresses in that service map are the private network IP addresses, HyperIQ is unable to connect to the other HyperStore nodes and therefore the setup fails and shows connection errors. </li>
+            <li>After the initial setup run fails, on the HyperIQ node change into the directory <em>$HOME/.config/cloudian/hyperiq</em> and manually edit the <em>cloudianservicemap.json</em> file to replace each HyperStore node's private IP address with its public IP address.</li>
+            <li>Run the installation again, and when prompted with 'Refresh cloudianservicemap.json?' answer <em style="font-weight: bold;">no</em>.</li>
+        </ol>
+        <div class="Indent">
+            <p>This time the installation should succeed.</p>
+        </div>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">If you subsequently add new nodes to your HyperStore system, and are updating your HyperIQ configuration by using <em>iqmgr setup</em> (see <MadCap:xref href="#Managing">Managing a HyperIQ Node</MadCap:xref>), you will need to go through a similar process of first having the setup fail (as HyperIQ retrieves the updated service map file that includes the new HyperStore nodes); and then manually editing HyperIQ's copy of the service map file to replace private IP addresses with the corresponding public IP&#160;addresses; and then running <em>iqmgr setup</em> again.</p>
+        <h2 id="h2_quick_start"><a name="Installi2"></a>Installing HyperIQ in a Docker Environment</h2>
+        <p>To install HyperIQ version 1.1 in an existing Docker environment:</p>
+        <ol>
+            <li>On the host machine on which you want to install HyperIQ, log in as a user who has permissions to run <em>docker</em> commands. In a working directory on the host machine, download or copy the HyperIQ installer appropriate for the host operating system  (<em>hyperiq-1.1.0.bin</em> for Linux or <em>hyperiq-1.1.0.app</em> for MacOS or <em>hyperiq-1.1.0.exe</em> for Windows).</li>
+        </ol>
+        <div class="Indent">
+            <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">You must use a command terminal for the remainder of this procedure.</p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>Change into the working directory in which you've put the HyperIQ installer file. </li>
+            <li>For Linux or MacOS, run the following command to make the installer file executable (for Windows, skip ahead to Step 4).</li>
+        </ol>
+        <div class="Indent">
+            <p>Linux:</p><pre class="large" xml:space="preserve">
+chmod +x hyperiq-1.1.0.bin</pre>
+            <p>MacOS:</p><pre class="large" xml:space="preserve">
+chmod +x hyperiq-1.1.0.app</pre>
+        </div>
+        <ol MadCap:continue="true">
+            <li>Start the installation.</li>
+        </ol>
+        <div class="Indent">
+            <p>Linux:</p><pre class="large" xml:space="preserve">./hyperiq-1.1.0.bin install</pre>
+            <p>MacOS:</p><pre class="large">./hyperiq-1.1.0.app install</pre>
+            <p> Windows:</p><pre class="large">hyperiq-1.1.0.exe install</pre>
+            <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">By default during the setup process you will need to supply a password so that HyperIQ can access HyperStore via SSH as the <em>root</em> user (or as the <em>sa_admin</em> user if you have configured your HyperStore system to use the HyperStore Shell). If instead of a password you want to use an SSH key that you have already installed on the HyperIQ host, append <em>-k &lt;ssh key name&gt;</em> to the install command (for example <em>./hyperiq-1.1.0.bin install -k &lt;ssh key filename&gt;</em>). The option of using an SSH key rather than a password is supported for <em>root</em> user access only. For accessing HyperStore as the <em>sa_admin</em> user, only password authentication is supported currently.</p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>When prompted by the installer, provide the IP address of one of your HyperStore nodes (it can be any node, and the IP address <b>must be reachable by HyperIQ</b>), and the user as which to connect to HyperStore (<em>root</em> or <em>sa_admin</em>), and that user's password. Note that the password prompt will not appear if you're using an SSH&#160;key instead.</li>
+        </ol>
+        <p>The installer:</p>
+        <ul>
+            <li>Creates three containers: one each for the mature open source technologies Prometheus and Grafana (which HyperIQ leverages for the collection, analysis, and visualization of HyperStore monitoring data), and one for HyperIQ management utilities. </li>
+            <li>Installs "exporters" on each of your HyperStore nodes. The exporters make HyperStore monitoring statistics available to HyperIQ. If your HyperStore system spans multiple data centers and/or multiple service regions, the HyperIQ installer will install exporters on all of your HyperStore nodes in all data centers and service regions.</li>
+            <li>Configures Prometheus and Grafana.</li>
+        </ul>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For special instructions that apply when your <b>HyperStore nodes use a private network to which HyperIQ is not attached</b>, see <MadCap:xref href="#Addition">Additional Steps If Your HyperStore Cluster Uses an Inaccessible Private Network</MadCap:xref>. Note that the location of the service map file described in those special instructions depends on the host operating system:<br />* Linux: <i>$HOME/.config/cloudian/hyperiq</i><br />*&#160;MacOS: <i>$HOME/Library/Application\ Support/cloudian/hyperiq</i><br />*&#160;Windows: <i>%USER%\AppData\Roaming\cloudian\hyperiq</i></p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For information about managing an HyperIQ node, see <MadCap:xref href="#Managing">Managing a HyperIQ Node</MadCap:xref></p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For its access to port 9999 on your HyperStore nodes, HyperIQ uses HTTPS (TLS) with Basic Authentication. The HyperIQ installer automatically configures these security mechanisms  on HyperIQ and the HyperStore nodes, using a self-signed certificate for TLS and a randomly generated password for Basic Authentication. </p>
+        <h2 id="h2_quick_start"><a name="Getting"></a>Getting Started with HyperIQ</h2>
+        <p>To connect to the HyperIQ UI point a browser to the following URL:</p>
+        <p><em>http://&lt;HyperIQ&#160;host name or IP address&gt;:3000</em>
+        </p>
+        <p>Log in with username <b>cloudian_admin</b> and password <b>admin</b>. You will then be prompted to change the password for the <b>cloudian_admin</b> user.</p>
+        <h3 id="h3_quick_start">Viewing HyperIQ Dashboards and Panels</h3>
+        <p>When you've logged in to HyperIQ for the first time you are at the <b>HyperIQ Main</b> dashboard. This is one of five HyperIQ dashboards:</p>
+        <ul>
+            <li><b>HyperIQ Main</b> -- HyperStore host OS level metrics such as  storage capacity consumption and availability, CPU and memory utilization, and network traffic. This dashboard also displays HyperStore system health alerts.</li>
+            <li><b>Hardware Status</b> -- For HyperStore appliances, Intelligent Platform Management Interface (IPMI) sensor data  such as hardware component temperatures, fan speeds, and power usage.</li>
+            <li><b>Services</b> -- HyperStore service level metrics such as up/down status and resource consumption for each service that runs on HyperStore hosts, such as the S3 Service, the Admin Service, and Cassandra.</li>
+            <li><b>Cassandra Status</b> -- Cassandra database metrics such as those pertaining to space consumption, compaction, and performance. </li>
+            <li><b>S3 Analytics</b> -- HyperStore S3 metrics regarding users, buckets, and transactions.</li>
+        </ul>
+        <p class="NoteIndent" MadCap:autonum="&lt;b&gt;Note &lt;/b&gt;">The S3 Analytics dashboard is available <b>only if your HyperStore system license includes support for the Enterprise version of HyperIQ</b>. For information about acquiring a  HyperStore license that supports the Enterprise version of HyperIQ, contact Cloudian Support.</p>
+        <p>To switch between dashboards, in the upper left of the UI click the dashboard title button.</p>
+        <p>
+            <img src="../Resources/Images/GUI/icon_DashboardTitle.png" />
+        </p>
+        <p>A list of the available dashboards then appears, and you can click on a dashboard name to go to that dashboard.</p>
+        <p>
+            <img src="../Resources/Images/GUI/DashboardList.png" class="imgCloudian" />
+        </p>
+        <p>Each dashboard consists of a set of "panels", with each panel providing a graphical representation of one metric (such as CPU Utilization or Top S3 Operations). In each dashboard, panels are grouped into panel folders. When you first access a dashboard, the first panel folder is open so that the panels from that folder display. To see the full list of panel folders available in a dashboard, collapse the open folder.</p>
+        <p><b>S3 Analytics</b> dashboard with <b>Overview</b> panel folder open:</p>
+        <p>
+            <img src="../Resources/Images/GUI/S3-Analytics_Overview-open.png" class="imgCloudian" />
+        </p>
+        <p><b>S3 Analytics</b> dashboard with all panel folders collapsed:</p>
+        <p>
+            <img src="../Resources/Images/GUI/S3-Analytics_panel-folders-list.png" class="imgCloudian" />
+        </p>
+        <h4 id="h4_quick_start">Filtering the Data in a Dashboard</h4>
+        <p>For each dashboard, in the top left of the HyperIQ UI you can filter the data in ways relevant to that dashboard. For example in the <b>HyperIQ Main</b> dashboard you can filter data by service region, data center, and node. </p>
+        <p>
+            <img src="../Resources/Images/GUI/HyperViewMain_filters.png" class="imgCloudian" />
+        </p>
+        <p>As a second example, in the <b>S3 Analytics</b> dashboard you can filter data by user and bucket.</p>
+        <p>
+            <img src="../Resources/Images/GUI/S3-Analytics_filters.png" class="imgCloudian" />
+        </p>
+        <p>If you filter dashboard data using the filters top left of the HyperIQ UI, your chosen filter applies to all panels in the dashboard.</p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">HyperIQ currently lacks the ability to partition HyperStore S3 user data by user group. One consequence of this is that in the unlikely event that two users in different groups have the same HyperStore user name, the <b>S3 Analytics</b> dashboard will treat their activity as if it was generated by a single user. </p>
+        <h4 id="h4_quick_start">Changing the Time Range for a Dashboard</h4>
+        <p>In the top right of the HyperIQ UI, you can change the time period for which a dashboard's panels display historical data. By default, such panels display data for the past hour. If you change the time period the change applies to all time period sensitive panels on the dashboard.</p>
+        <p>
+            <img src="../Resources/Images/GUI/TimePeriodSelection.png" class="imgCloudian" />
+        </p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;"><b>You cannot view data that's previous to the date of your HyperIQ installation</b>. Also, the current version of HyperIQ does not support viewing data that's more than 30 days old.</p>
+        <h4 id="h4_quick_start">Sorting the Data in a Panel</h4>
+        <p>In panels that display data in columns, you can sort the data by clicking on column headings.</p>
+        <h4 id="h4_quick_start">Viewing a Larger Version of a Panel</h4>
+        <p>To enlarge a panel, click the panel title and then click <b>View</b>.</p>
+        <h4 id="h4_quick_start">Viewing Information About the Data in a Panel</h4>
+        <p>For brief information about the data in a panel, hold your cursor over the "i" to the left of the panel name.</p>
+        <p>
+            <img src="../Resources/Images/GUI/PanelInfo.png" class="" />
+        </p>
+        <h4 id="h4_quick_start">For More Information About Working with Dashboards and Panels</h4>
+        <p>HyperIQ is built on Grafana data visualization technology and exposes much of the Grafana native functionality. For more information about Grafana capabilities see the Grafana official documentation or community resources, which are available on the web.</p>
+        <h3 id="h3_quick_start"><a name="Adding"></a>Adding HyperIQ Users</h3>
+        <p>The <i>cloudian_admin</i> user is a "Super Admin" user with full HyperIQ permissions, and is the only user who can add new HyperIQ users. When you are logged in as the <i>cloudian_admin</i> user you can create new HyperIQ users and then assign each user one of three roles with differing permission levels:</p>
+        <ul>
+            <li><b>Admin</b>: Can view, edit, and create dashboards and panels; configure alerts and notifications; and manage existing users (such as by changing a user's role or deleting a user). Cannot add new users.</li>
+            <li><b>Editor</b>: Can view, edit, and create dashboards and panels; and configure alerts and notifications. Cannot add or manage users.</li>
+            <li><b>Viewer</b>: Can view dashboards and panels. Cannot edit or create dashboards and panels, configure alerts or notifications, or add or manage users.</li>
+        </ul>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">In addition to the <b>cloudian_admin</b> user with the Super Admin role, HyperIQ includes one pre-configured user with the Editor role. The user name is <b>org_editor</b> and the password for this user's first login to the HyperIQ UI is <b>admin</b>. Upon this user's first login they will be prompted to change their password.</p>
+        <h4 id="h4_quick_start">Adding a HyperIQ User</h4>
+        <ol>
+            <li>On the left side of the HyperIQ UI, click the Server Admin icon.</li>
+        </ol>
+        <div class="Indent">
+            <p>
+                <img src="../Resources/Images/GUI/icon_ServerAdmin.png" />
+            </p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>In the <b>Server Admin</b> page, click <b>New user</b>.</li>
+            <li>Enter the information for the new user and then click <b>Create</b>.</li>
+        </ol>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">By default all new users are created with the <b>Viewer</b> role. If you want a user to have more than view permissions you can explicitly assign them a role as described below.</p>
+        <h4 id="h4_quick_start">Assigning a HyperIQ User a Role</h4>
+        <ol>
+            <li>On the left side of the HyperIQ UI, click the Configuration icon.</li>
+        </ol>
+        <div class="Indent">
+            <p>
+                <img src="../Resources/Images/GUI/icon_Configuration.png" />
+            </p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>In the <b>Configuration</b> page, select the <b>Users</b> tab.</li>
+            <li>In the list of users that displays, use the <b>Role</b> column to change a user's assigned role.</li>
+        </ol>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">The <b>Configuration</b> page's <b>Users</b> tab also shows an <b>Invite</b> button. The <b>Invite</b> function -- for sending email invitations that enable recipients to become HyperIQ users if they wish to  -- is not supported in the current version of HyperIQ.</p>
+        <h4 id="h4_quick_start">Assigning Permissions for a Specific Dashboard</h4>
+        <p>Depending on your HyperIQ use case, simply assigning users one of the three roles (Admin, Editor, or Viewer) may be sufficient for managing HyperIQ user permissions. However, if you wish you can implement more granular permissions, at the dashboard level. </p>
+        <p>A&#160;good example would be if you want users with the Viewer role to be able to view only the S3 Analytics dashboard and not the HyperIQ Main dashboard or the Services dashboard. To do so:</p>
+        <ol>
+            <li>Go to the HyperIQ Main dashboard, and then in the upper right of the UI click the Dashboard Settings icon:</li>
+        </ol>
+        <div class="Indent">
+            <p>
+                <img src="../Resources/Images/GUI/icon_DashboardSettings.png" />
+            </p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>In the HyperIQ Main / Settings page select <b>Permissions</b>.</li>
+        </ol>
+        <div class="Indent">
+            <p>
+                <img src="../Resources/Images/GUI/DashboardSettings_Permissions.png" class="imgCloudian" />
+            </p>
+        </div>
+        <ol MadCap:continue="true">
+            <li>In the Viewer role row, click the red X at the right to remove the Viewer role from the list of roles that have permissions for this dashboard.</li>
+            <li>On the left side of the HyperIQ Main / Settings page click <b>Save</b> (optionally you will be able to enter a comment about the saved change).</li>
+            <li>Repeat Steps 1 through 4 for the Services dashboard.</li>
+        </ol>
+        <p>As a variation of the example above, you could set things up so that most users with the Viewer role can view only the S3 Analytics dashboard but certain chosen users could also have view-only permissions for the HyperIQ Main and Settings dashboards. To do this, follow the steps above, but for both the HyperIQ Main dashboard and the Services dashboard, after removing the Viewer role from the permissions list click <b>Add Permission</b>. Then select the user to whom to grant permission, select View as the permission level, and click <b>Save</b>.</p>
+        <p>
+            <img src="../Resources/Images/GUI/DashboardSettings_Permissions_add-permission.png" class="imgCloudian" />
+        </p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">If you plan to make extensive use of dashboard level permissions, you may wish to organize your users into teams, and then after doing so you can set a dashboard level permission for a whole team. To organize users into teams, on the left of the HyperIQ UI click the Configuration icon and then in the <b>Configuration</b> page select the <b>Team</b> tab.</p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">When a dashboard's permissions are configured such that for some users there is a discrepancy between their role-based permission, a team-based permission, and a user-specific permission, the highest degree of permission applicable to the user takes precedence. For example if a user with the Viewer role belongs to a team that has Edit permissions to the dashboard, then the user has Edit permissions for the dashboard. </p>
+        <h3 id="h3_quick_start"><a name="Setting"></a>Setting Up Alerts and Notifications</h3>
+        <p>The HyperIQ Main dashboard includes an <b>Active Alerts</b> panel that shows the list of currently configured alerts and the status of each alert (OK or Alerting).</p>
+        <p>
+            <img src="../Resources/Images/GUI/Alerts_Active.png" class="imgCloudian" />
+        </p>
+        <p>HyperIQ includes pre-configured alerts for:</p>
+        <ul>
+            <li>Node down</li>
+            <li>Service down</li>
+            <li>Disk failure</li>
+            <li>A&#160;node's CPU utilization is over 80%</li>
+            <li>A&#160;node's RAM utilization  is over 80%</li>
+            <li>A&#160;node's storage capacity utilization  is over 80%</li>
+            <li>A&#160;node's transmit or receive network traffic  is over 1Gb/sec</li>
+        </ul>
+        <p>If you wish you can edit the configuration of these alerts as described in <MadCap:xref href="#Editing">Editing Alerts</MadCap:xref>.</p>
+        <p>Each alert is based on data in a particular panel from a dashboard. Panels for which an alert has been configured are indicated by a heart-shaped icon next to the panel title (a green heart indicates an OK status for the alert and a red heart indicates an Alerting status).</p>
+        <p>
+            <img src="../Resources/Images/GUI/Alerts_PanelTitleIcon.png" class="imgCloudian" />
+        </p>
+        <p>By default, there is no sending of notifications in connections with alerts -- rather, the alerts appear only in the HyperIQ UI. You can enable notifications as described in <MadCap:xref href="#Enabling">Enabling Email Notifications</MadCap:xref>.</p>
+        <h4 id="h4_quick_start"><a name="Editing"></a>Editing Alerts</h4>
+        <p>To edit an existing alert, in the HyperIQ Main dashboard's <b>Alert List</b> panel, click on the alert that you want to edit. (Alternatively, on the left side of the HyperIQ UI you can click the bell-shaped Alerting icon  and then in the Alert Rules list, click on the alert rule you want to edit). This opens a page for editing the rule, where you can for example change the alerting threshold for a threshold-based alert such as High CPU Utilization.</p>
+        <p>
+            <img src="../Resources/Images/GUI/Alerts_EditRule.png" class="imgCloudian" />
+        </p>
+        <p>After making any change to an alert rule, at the top right of the HyperIQ UI click the Save Dashboard icon to save your change.</p>
+        <p>
+            <img src="../Resources/Images/GUI/icon_SaveDashboard.png" />
+        </p>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">For more detail on configuring alert rule conditions, see the Grafana documentation available on the web.</p>
+        <h4 id="h4_quick_start"><a name="Enabling"></a>Enabling Email Notifications</h4>
+        <p>To enable email notifications for HyperIQ alerts you must:</p>
+        <ol>
+            <li>Configure HyperIQ integration with your existing SMTP server by editing a Grafana configuration file on the HyperIQ node.</li>
+            <li>Use the HyperIQ UI to configure one or more "notification channels" (with each channel being a named set of email addresses).</li>
+            <li>Use the HyperIQ UI to apply the notification channel(s) to all alert rules or selected alert rules.</li>
+        </ol>
+        <p>To configure HyperIQ integration with an SMTP server, log into the HyperIQ VM -- not the UI but rather the node itself, either by way of your virtualization platform console or an SSH client -- with Unix user name <b>cloudian</b> and the password that you created when you installed and set up the HyperIQ node. Use a text editor to open the configuration file <em>/etc/grafana/grafana.ini</em>. Then edit the "SMTP / Emailing" section of the file -- the default settings are shown below -- so that <em>enabled = true</em> and the rest of the settings match your SMTP environment (including the SMTP&#160;server host name or IP&#160;address) and your notification email preferences.</p><pre xml:space="preserve">#################################### SMTP / Emailing ##########################
+[smtp]
+;enabled = false
+;host = localhost:25
+;user =
+# If the password contains # or ; you have to wrap it with triple quotes. Ex """#password;"""
+;password =
+;cert_file =
+;key_file =
+;skip_verify = false
+;from_address = admin@grafana.localhost
+;from_name = Grafana
+# EHLO identity in SMTP dialog (defaults to instance_name)
+;ehlo_identity = dashboard.example.com
+
+[emails]
+;welcome_email_on_sign_up = false</pre>
+        <p>After saving your edits and closing the configuration file, restart the Grafana service to apply your configuration changes:</p><pre class="large">$ sudo systemctl restart grafana-server.service</pre>
+        <p>Next, use your browser to connect to the HyperIQ UI (<em>http://&lt;IP address of HyperIQ VM&gt;:3000</em>) and log in. Then on the left of the UI click the Alerting icon.</p>
+        <p>
+            <img src="../Resources/Images/GUI/icon_Alerting.png" />
+        </p>
+        <p>In the <b>Alerting</b> page, select the <b>Notification Channels</b> tab, then click <b>Add Chanel</b>. This displays an interface for configuring a new notification channel.</p>
+        <p>
+            <img src="../Resources/Images/GUI/Alerts_NewNotificationChannel.png" class="imgCloudian" /> </p>
+        <p>Enter a name for the channel (for example "System Admins"), select whether or not you want the channel to be applied to all HyperIQ alerts by default (so that all alerts result in emails being sent to this channel), and enter one or more email addresses for this channel (for example the email address[es] of the administrator[s] of your Cloudian systems). Then click <b>Save</b>.</p>
+        <p>You can create additional notification channels in the same way if you wish.</p>
+        <p>To send a test email to one of your saved channels, in the <b>Notification Channels</b> list click on the channel name, and then click <b>Send Test</b>.</p>
+        <p>If you did not apply your notification channel(s) to all alerts by default, you can instead apply the channel(s) only to specific alert rules of your choosing. In this way you can have some alert rules result in email notifications while others do not. To do so, in the HyperIQ Main dashboard's <b>Alert List</b>, click on an alert for which you want to enable notifications. In the alert edit page, next to <b>Send To</b>, click the "<b>+</b>" sign.</p>
+        <p>
+            <img src="../Resources/Images/GUI/Alerts_EditRuleNotifications.png" class="imgCloudian" />
+        </p>
+        <p>This displays a drop-down list of your notification channels from which you can select. You can also edit the notification message if you wish. When you're done, at the top right of the HyperIQ UI click the Save Dashboard icon to save your change.</p>
+        <p>
+            <img src="../Resources/Images/GUI/icon_SaveDashboard.png" />
+        </p>
+        <h2 id="h2_quick_start"><a name="Managing"></a>Managing a HyperIQ Node</h2>
+        <p>HyperIQ includes a management tool named <em>iqmgr</em>. The directory location of this tool depends on your operating system type:</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
+            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 329px;" />
+            <col class="TableStyle-TableCloudian-Column-Regular" />
+            <thead>
+                <tr class="TableStyle-TableCloudian-Head-Header1">
+                    <th class="TableStyle-TableCloudian-HeadE-Regular-Header1">Operating System</th>
+                    <th class="TableStyle-TableCloudian-HeadD-Regular-Header1">Location of <i>iqmgr</i> Tool (and Other HyperIQ Files)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows">Linux (including the HyperIQ virtual appliance)</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">$HOME/.config/cloudian/hyperiq</td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows">MacOS</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows">$HOME/Library/Application\ Support/cloudian/hyperiq</td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyB-Regular-LightRows">Windows</td>
+                    <td class="TableStyle-TableCloudian-BodyA-Regular-LightRows">%USER%\AppData\Roaming\cloudian\hyperiq</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>If you installed HyperIQ as a virtual appliance, you can run <em>iqmgr</em> from any directory. If you installed HyperIQ into an existing Docker environment, you must change into the applicable <em>iqmgr</em> directory from the table above to run <em>iqmgr</em>, or else include the directory path when running <em>iqmgr</em> (or for convenience you could, for example, create a symlink to the tool).</p>
+        <p>With the <em>iqmgr</em> tool you can perform the following HyperIQ management tasks:</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
+            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 329px;" />
+            <col class="TableStyle-TableCloudian-Column-Regular" />
+            <thead>
+                <tr class="TableStyle-TableCloudian-Head-Header1">
+                    <th class="TableStyle-TableCloudian-HeadE-Regular-Header1">Management Task</th>
+                    <th class="TableStyle-TableCloudian-HeadD-Regular-Header1"><i>iqmgr</i> Command</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows">
+                        <p>Reconfigure integration with HyperStore</p>
+                        <p>Do this if  you change your HyperStore cluster composition such as by adding a node.</p>
+                    </td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <p><em>iqmgr setup</em>
+                        </p>
+                        <p>Note: When prompted for whether you want to refresh the local <em>cloudianservicemap.json</em> file, answer <em>yes</em> (unless you have HyperStore on a private network to which HyperIQ is not attached and you've manually edited HyperIQ's copy of the service map file as described in the HyperIQ setup procedure).</p>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows">Display HyperIQ container logs</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows"><em>iqmgr logs</em>
+                        <br />
+                        <br />Note: Additional log files -- for installer output and <em>iqmgr</em> output -- are located in the same directory as <em>iqmgr</em>.</td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows">Check or change HyperIQ virtual appliance network settings (applicable only to the virtual appliance and not to HyperIQ installed in an existing Docker environment)</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <ul>
+                            <li><em>iqmgr network status</em>
+                            </li>
+                            <li><em>sudo iqmgr network config</em>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows">Display the HyperIQ version number</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows"><em>iqmgr version</em>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyB-Regular-LightRows">Display <em>iqmgr</em> command help </td>
+                    <td class="TableStyle-TableCloudian-BodyA-Regular-LightRows"><em>igmgr &lt;command&gt; --help</em>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">Even if you install HyperIQ as a virtual appliance (using the OVA file), HyperIQ is implemented as a containerized application that uses Docker software that's packaged with the appliance. Therefore even on the HyperIQ virtual appliance you can use <em>docker</em> and <em>docker-compose</em> commands, such as <em>docker ps</em> to list the currently running containers.</p>
+        <h3 id="h3_quick_start">Uninstalling HyperIQ</h3>
+        <p>To uninstall HyperIQ after having installed it to an existing Docker environment, run <em>hyperiq-1.1.0.bin uninstall</em> or <em>hyperiq-1.1.0.app uninstall</em> or <em>hyperiq-1.1.0.exe uninstall</em>, for uninstalling on Linux or MacOS or Windows, respectively. </p>
+        <p>This action will stop and remove Docker containers, images, networks and volumes, and the logs and tools directory.  <b>Your HyperIQ data will be lost</b> (you will lose accumulated HyperStore monitoring data stored in the HyperIQ database, from the period during which you've had HyperIQ running). If instead you want to reinstall the HyperIQ application without losing your existing data, then instead of uninstalling you can simply run <em>hyperiq-1.1.0.&lt;ext&gt; install</em> again.  This will reinstall the HyperIQ containers without loss of existing HyperIQ data.</p>
+        <p>To uninstall HyperIQ after having installed it from the OVA, you can simply delete the VM using your virtualization platform management UI. Or to reinstall the HyperIQ application without losing existing HyperIQ data, log into the VM as the <em>cloudian</em> user and run <em>iqinstall</em> again.</p>
+    </body>
+</html>
