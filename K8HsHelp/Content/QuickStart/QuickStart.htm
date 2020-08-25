@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="4" MadCap:lastHeight="3250" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="4" MadCap:lastHeight="2973" MadCap:lastWidth="1352">
     <head>
     </head>
     <body>
@@ -11,17 +11,17 @@
         <p>&#160;</p>
         <p>DEPLOY.MD ORIGINAL</p>
         <p>This guide shows you how to deploy the Cloudian S3 Provisioner for Kubernetes to allow you to use Object Bucket Claim, so your deployments have easy access to HyperStore buckets.</p>
-        <p>It assumes a good working knowledge of Kubernetes and that you have `kubectl` on your path with permissions to run it.</p>
+        <p>It assumes a good working knowledge of Kubernetes and that you have <em>kubectl</em> on your path with permissions to run it.</p>
         <h2 id="h2_quick_start">Create the Object Bucket and Object Bucket Claim Custom Resource Definitions</h2>
         <p>Firstly, we need to create the generic Object Bucket and Object Bucket provisioner resources.  This only needs to be done once.</p>
         <p>Simply run</p><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
         <h2 id="h2_quick_start">Deploy the S3 Provisioner</h2>
         <p>Next we need to deploy the Cloudian provisioner.  This only needs to be done once per Kubernetes cluster.</p>
         <p>Simply run</p><pre>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/hyperstore/examples/cloudian-s3-provisioner.yaml</pre>
-        <p>This deploys a provisioner in the `s3-provisioner` namespace.</p>
+        <p>This deploys a provisioner in the <em>s3-provisioner</em> namespace.</p>
         <h2 id="h2_quick_start">Create Owner Secret</h2>
         <p>We need to give the Kubernetes cluster the ability to connect to HyperStore.  You need credentials from a user who has sufficient rights to create/delete/get buckets and IAM users.  Again, only one of these is needed per Kubernetes cluster.</p>
-        <p>Create 'owner-secret.yaml':</p><pre xml:space="preserve">apiVersion: v1
+        <p>Create <em>owner-secret.yaml</em>:</p><pre xml:space="preserve">apiVersion: v1
 kind: Secret
 metadata:
   name: s3-bucket-owner
@@ -36,7 +36,7 @@ data:
         <p>As an alternative to using a YAML file for the owner secret, create these from the command line</p><pre>kubectl create secret -n s3-provisioner generic s3-bucket-owner --from-literal=AWS_ACCESS_KEY_ID=&lt;access key&gt; --from-literal=AWS_SECRET_ACCESS_KEY=&lt;secret key&gt;</pre>
         <h2 id="h2_quick_start">Create Storage Class</h2>
         <p>You may need multiple storage classes.  You can either create "greenfield" (each new deployment gets access to a newly created, empty bucket) or "brownfield" (each deployment gets access to a pre-created bucket) type classes.</p>
-        <p>Create `storage-class.yaml`:</p><pre xml:space="preserve">kind: StorageClass
+        <p>Create <em>storage-class.yaml</em>:</p><pre xml:space="preserve">kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: &lt;tag for this class, e.g. hyperstore-buckets&gt;
@@ -56,12 +56,12 @@ parameters:
 reclaimPolicy: Delete</pre>
         <p>This file needs some customization, depending on your setup.</p>
         <ol>
-            <li>Change metdata.name to a unique tag for this storage class.</li>
-            <li>Change region, s3Endpoint and iamEndpoint to match your HyperStore setup</li>
-            <li>For greenfield: delete bucketName and optionally set the storage policy to use for new buckets. Omit the storagePolicyId line to use the default policy. To find the policy ID, navigate to the Cluster-&gt;Storage Policies page on the CMC, select View/Edit for the policy, and copy the ID field (above the Policy Name field)</li>
-            <li>For brownfield: specify an already created bucket name and delete reclaimPolicy and storagePolicyId</li>
-            <li>Optionally disable IAM user creation for bucket access by setting `createBucketUser` to `"no"`. A separate secret can be used to hold a shared credentials granted to all object bucket claims for this storage class by setting `bucketClaimUserSecretName` and `bucketClaimUserSecretNamespace`. If this secret is unset, the credentials from the `secretNamespace/secretName` are provided to object bucket claims.</li>
-            <li>Optionally specify an IAM policy document to override default read+write access to the bucket. You do not need to specify `Resource` fields - they will be set to only allow access to the provisioned bucket. Only applicable if IAM user creation is enabled. For example, to grant read-only access to the bucket:</li>
+            <li>Change <em>metdata.name</em> to a unique tag for this storage class.</li>
+            <li>Change <em>region</em>, <em>s3Endpoint</em> and <em>iamEndpoint</em> to match your HyperStore setup</li>
+            <li>For greenfield: delete <em>bucketName</em> and optionally set the storage policy to use for new buckets. Omit the <em>storagePolicyId</em> line to use the default policy. To find the policy ID, navigate to the <b>Cluster-&gt;Storage Policies</b> page on the CMC, select <b>View/Edit</b> for the policy, and copy the ID field (above the Policy Name field)</li>
+            <li>For brownfield: specify an already created bucket name and delete <em>reclaimPolicy </em>and <em>storagePolicyId</em></li>
+            <li>Optionally disable IAM user creation for bucket access by setting <em>createBucketUser</em> to <em>"no"</em>. A separate secret can be used to hold a shared credentials granted to all object bucket claims for this storage class by setting <em>bucketClaimUserSecretName</em> and <em>bucketClaimUserSecretNamespace</em>. If this secret is unset, the credentials from the <em>secretNamespace/secretName</em> are provided to object bucket claims.</li>
+            <li>Optionally specify an IAM policy document to override default read+write access to the bucket. You do not need to specify <em>Resource</em> fields - they will be set to only allow access to the provisioned bucket. Only applicable if IAM user creation is enabled. For example, to grant read-only access to the bucket:</li>
         </ol>
         <div class="Indent"><pre xml:space="preserve">iamPolicy: |
   {
@@ -75,49 +75,40 @@ reclaimPolicy: Delete</pre>
         </div>
         <p>Apply this with:</p><pre>kubectl apply -f storage-class.yaml</pre>
         <h2 id="h2_quick_start">Checking Your Setup</h2>
-        <p>Create a `test.yaml` file that creates bucket claim and pod that binds environment variables to the config map and secret the provisioner generates:</p><pre xml:space="preserve">apiVersion: objectbucket.io/v1alpha1
+        <p>Create a <em>test.yaml</em> file that creates bucket claim and pod that binds environment variables to the config map and secret the provisioner generates:</p><pre xml:space="preserve">apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
-name: test-setup-check
+  name: test-setup-check
 spec:
-generateBucketName: test-setup-check
-storageClassName: &lt;object storage class you want to check, e.g. hyperstore-buckets&gt;
+  generateBucketName: test-setup-check
+  storageClassName: &lt;object storage class you want to check, e.g. hyperstore-buckets&gt;
 ---
 apiVersion: v1
 kind: Pod
 metadata:
-name: test-setup-check
+  name: test-setup-check
 spec:
 containers:
-- name: test-setup-check
-image: k8s.gcr.io/busybox
-command: [ "/bin/sh", "-c", "env" ]
-envFrom:
-- configMapRef:
-name: test-setup-check
-- secretRef:
-name: test-setup-check
-restartPolicy: Never</pre>
-        <p>Deploy the `test.yaml`, wait until the test pod exists, then look at the logs and check the environment variables. Use the HyperStore CMC to verify the bucket has been created and an IAM user created that only has access rights to the bucket.</p>
-        <p>```</p>
-        <p>kubectl apply -f test.yaml</p>
-        <p>kubectl get pods -w test-setup-check</p>
-        <p># Wait until pod is status completed, then hit ctrl-c</p>
-        <p>kubectl logs test-setup-check | grep BUCKET_</p>
-        <p>```</p>
-        <p>You should see the following environment variables set</p>
-        <p>```bash</p>
-        <p>BUCKET_HOST=s3-reg-1.landemo1.cloudian.eu</p>
-        <p>BUCKET_PORT=80</p>
-        <p>BUCKET_NAME=check-setup-ccf09b7c-ce06-431c-bc7d-9ddd5af8d192</p>
-        <p>BUCKET_SUBREGION=</p>
-        <p>BUCKET_REGION=reg-1</p>
-        <p>```</p>
+  - name: test-setup-check
+  image: k8s.gcr.io/busybox
+  command: [ "/bin/sh", "-c", "env" ]
+  envFrom:
+  - configMapRef:
+    name: test-setup-check
+  - secretRef:
+    name: test-setup-check
+  restartPolicy: Never</pre>
+        <p>Deploy the <em>test.yaml</em>, wait until the test pod exists, then look at the logs and check the environment variables. Use the HyperStore CMC to verify the bucket has been created and an IAM user created that only has access rights to the bucket.</p><pre xml:space="preserve">kubectl apply -f test.yaml
+kubectl get pods -w test-setup-check
+# Wait until pod is status completed, then hit ctrl-c
+kubectl logs test-setup-check | grep BUCKET_</pre>
+        <p>You should see the following environment variables set</p><pre xml:space="preserve">BUCKET_HOST=s3-reg-1.landemo1.cloudian.eu
+BUCKET_PORT=80
+BUCKET_NAME=check-setup-ccf09b7c-ce06-431c-bc7d-9ddd5af8d192
+BUCKET_SUBREGION=
+BUCKET_REGION=reg-1</pre>
         <p>and the bucket and similarly looking IAM user created.  You'll also see the AWS credentials in the log too.  These details can be used to access HyperStore for that bucket only.</p>
-        <p>Delete this deployment, and use the CMC to check the test bucket and IAM user have been deleted:</p>
-        <p>```</p>
-        <p>kubectl delete -f test.yaml</p>
-        <p>```</p>
+        <p>Delete this deployment, and use the CMC to check the test bucket and IAM user have been deleted:</p><pre>kubectl delete -f test.yaml</pre>
         <p>If you look in CMC, you'll see the bucket and IAM user are gone.</p>
     </body>
 </html>

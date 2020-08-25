@@ -4,134 +4,9 @@
   OnlyLocalStylesheets="false"
   FileTimeEstimate="0"
   FilePriority="0">
-  <Links>
-    <Link
-      Url="Content/Resources/TableStyles/TableCloudian.css" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_DashboardTitle.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardList.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_Overview-open.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_panel-folders-list.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/HyperViewMain_filters.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_filters.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/TimePeriodSelection.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/PanelInfo.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_ServerAdmin.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_Configuration.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_DashboardSettings.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardSettings_Permissions.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardSettings_Permissions_add-permission.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_Active.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_PanelTitleIcon.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_EditRule.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_SaveDashboard.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_Alerting.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_NewNotificationChannel.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_EditRuleNotifications.png" />
-  </Links>
-  <LongLinks>
-    <Link
-      Url="Content/Resources/TableStyles/TableCloudian.css" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Requirem" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Installi" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Installi2" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Getting" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Managing" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Addition" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_DashboardTitle.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardList.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_Overview-open.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_panel-folders-list.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/HyperViewMain_filters.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/S3-Analytics_filters.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/TimePeriodSelection.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/PanelInfo.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_ServerAdmin.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_Configuration.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_DashboardSettings.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardSettings_Permissions.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/DashboardSettings_Permissions_add-permission.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_Active.png" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Editing" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_PanelTitleIcon.png" />
-    <Link
-      Url="Content/QuickStart/QuickStart.htm#Enabling" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_EditRule.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_SaveDashboard.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/icon_Alerting.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_NewNotificationChannel.png" />
-    <Link
-      Url="Content/Resources/Images/GUI/Alerts_EditRuleNotifications.png" />
-  </LongLinks>
-  <Anchors>
-    <Anchor
-      Name="Requirem" />
-    <Anchor
-      Name="Installi" />
-    <Anchor
-      Name="Addition" />
-    <Anchor
-      Name="Installi2" />
-    <Anchor
-      Name="Getting" />
-    <Anchor
-      Name="Adding" />
-    <Anchor
-      Name="Setting" />
-    <Anchor
-      Name="Editing" />
-    <Anchor
-      Name="Enabling" />
-    <Anchor
-      Name="Managing" />
-  </Anchors>
+  <Links />
+  <LongLinks />
+  <Anchors />
   <Keywords />
   <Concepts />
   <ConceptControlNames />
@@ -140,8 +15,5 @@
   <FileConditions />
   <FileTags />
   <AllConditions />
-  <Stylesheets>
-    <Url
-      Source="Content/Resources/TableStyles/TableCloudian.css" />
-  </Stylesheets>
+  <Stylesheets />
 </CatapultFileLinkSet>
