@@ -1,45 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="5" MadCap:lastHeight="3522" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="3392" MadCap:lastWidth="1352">
     <head>
         <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
         <p style="text-align: center;"><span style="font-size: 18pt; color: #dae691;"><span style="color: #b5cb2b;font-weight: bold;">Cloudian S3 Kubernetes Provisioner Quick Start</span></span>
         </p>
-        <p>&#160;</p>
-        <p>&#160;</p>
-        <p><code>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</code>
-        </p>
-        <p>&#160;</p>
-        <p>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</p>
-        <p>&#160;</p>
+        <p>The Cloudian S3 Provisioner makes it easy for containerized applications orchestrated by Kubernetes to use Cloudian HyperStore as their S3-driven object storage target. With the S3 Provisioner, you can use familiar Kubernetes resources and tooling to make HyperStore object storage buckets securely available to application pods that have S3 client capabilities. Such applications can then read and write to those object storage buckets using standard S3 API calls, subject to any restrictions that you as the administrator establish when configuring the relevant Kubernetes resources.</p>
+        <h2 id="h2_quick_start">Requirements</h2>
         <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
+            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 247px;" />
             <col class="TableStyle-TableCloudian-Column-Regular" />
+            <thead>
+                <tr class="TableStyle-TableCloudian-Head-Header1">
+                    <th class="TableStyle-TableCloudian-HeadE-Regular-Header1">Requirement Type</th>
+                    <th class="TableStyle-TableCloudian-HeadD-Regular-Header1">Requirement</th>
+                </tr>
+            </thead>
             <tbody>
                 <tr class="TableStyle-TableCloudian-Body-LightRows">
-                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows"><code>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/<br />hyperstore/examples/cloudian-s3-provisioner.yaml</code>
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows" style="text-align: center;">HyperStore system</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <p>HyperStore 7.1.7 or new</p>
+                        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">If you are using HyperStore 7.1.7, need to enable... (if will have pods access as an IAM&#160;user)</p>
                     </td>
                 </tr>
                 <tr class="TableStyle-TableCloudian-Body-DarkerRows">
-                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows"><code>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/<br />lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</code>
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows" style="text-align: center;">Kubernetes environment</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows">
+                        <ul>
+                            <li>Kubernetes XX</li>
+                            <li>A&#160;Kubernetes-orchestrate application</li>
+                        </ul>
                     </td>
                 </tr>
                 <tr class="TableStyle-TableCloudian-Body-LightRows">
-                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows"><code>kubectl create secret -n s3-provisioner generic s3-bucket-owner <br />--from-literal=AWS_ACCESS_KEY_ID=&lt;access key&gt; --from-literal=AWS_SECRET_ACCESS_KEY=&lt;secret key&gt;</code> </td>
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows" style="text-align: center;">Information you will need regarding your HyperStore system</td>
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                        <ul>
+                            <li>S3 Service endpoint (available CMC...)</li>
+                            <li>IAM&#160;Service endpoint ("&#160;&#160;&#160;")</li>
+                            <li>Storage policy IDs (CMC...)</li>
+                        </ul>
+                    </td>
                 </tr>
                 <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyB-Regular-DarkerRows" style="text-align: center;">&#160;</td>
                     <td class="TableStyle-TableCloudian-BodyA-Regular-DarkerRows">&#160;</td>
                 </tr>
             </tbody>
         </table>
         <p>&#160;</p>
-        <p>Simply run</p><pre xml:space="preserve">kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/
-lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre>
         <p>&#160;</p>
-        <p>&#160;</p><pre xml:space="preserve">kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/
-lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
-        <p>&#160;</p><pre>kubectl create secret -n s3-provisioner generic s3-bucket-owner --from-literal=AWS_ACCESS_KEY_ID=&lt;access key&gt; --from-literal=AWS_SECRET_ACCESS_KEY=&lt;secret key&gt;</pre>
-        <p>DEPLOY.MD ORIGINAL</p>
+        <p>DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL</p>
         <p>This guide shows you how to deploy the Cloudian S3 Provisioner for Kubernetes to allow you to use Object Bucket Claim, so your deployments have easy access to HyperStore buckets.</p>
         <p>It assumes a good working knowledge of Kubernetes and that you have <em>kubectl</em> on your path with permissions to run it.</p>
         <h2 id="h2_quick_start">Create the Object Bucket and Object Bucket Claim Custom Resource Definitions</h2>
