@@ -1,14 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="4" MadCap:lastHeight="2973" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="5" MadCap:lastHeight="3522" MadCap:lastWidth="1352">
     <head>
+        <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
         <p style="text-align: center;"><span style="font-size: 18pt; color: #dae691;"><span style="color: #b5cb2b;font-weight: bold;">Cloudian S3 Kubernetes Provisioner Quick Start</span></span>
         </p>
         <p>&#160;</p>
         <p>&#160;</p>
+        <p><code>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</code>
+        </p>
         <p>&#160;</p>
+        <p>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</p>
         <p>&#160;</p>
+        <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
+            <col class="TableStyle-TableCloudian-Column-Regular" />
+            <tbody>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows"><code>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/<br />hyperstore/examples/cloudian-s3-provisioner.yaml</code>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows"><code>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/<br />lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</code>
+                    </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows"><code>kubectl create secret -n s3-provisioner generic s3-bucket-owner <br />--from-literal=AWS_ACCESS_KEY_ID=&lt;access key&gt; --from-literal=AWS_SECRET_ACCESS_KEY=&lt;secret key&gt;</code> </td>
+                </tr>
+                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
+                    <td class="TableStyle-TableCloudian-BodyA-Regular-DarkerRows">&#160;</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>&#160;</p>
+        <p>Simply run</p><pre xml:space="preserve">kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/
+lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre>
+        <p>&#160;</p>
+        <p>&#160;</p><pre xml:space="preserve">kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/
+lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
+        <p>&#160;</p><pre>kubectl create secret -n s3-provisioner generic s3-bucket-owner --from-literal=AWS_ACCESS_KEY_ID=&lt;access key&gt; --from-literal=AWS_SECRET_ACCESS_KEY=&lt;secret key&gt;</pre>
         <p>DEPLOY.MD ORIGINAL</p>
         <p>This guide shows you how to deploy the Cloudian S3 Provisioner for Kubernetes to allow you to use Object Bucket Claim, so your deployments have easy access to HyperStore buckets.</p>
         <p>It assumes a good working knowledge of Kubernetes and that you have <em>kubectl</em> on your path with permissions to run it.</p>
@@ -56,7 +86,7 @@ parameters:
 reclaimPolicy: Delete</pre>
         <p>This file needs some customization, depending on your setup.</p>
         <ol>
-            <li>Change <em>metdata.name</em> to a unique tag for this storage class.</li>
+            <li>Change <em>metadata.name</em> to a unique tag for this storage class.</li>
             <li>Change <em>region</em>, <em>s3Endpoint</em> and <em>iamEndpoint</em> to match your HyperStore setup</li>
             <li>For greenfield: delete <em>bucketName</em> and optionally set the storage policy to use for new buckets. Omit the <em>storagePolicyId</em> line to use the default policy. To find the policy ID, navigate to the <b>Cluster-&gt;Storage Policies</b> page on the CMC, select <b>View/Edit</b> for the policy, and copy the ID field (above the Policy Name field)</li>
             <li>For brownfield: specify an already created bucket name and delete <em>reclaimPolicy </em>and <em>storagePolicyId</em></li>

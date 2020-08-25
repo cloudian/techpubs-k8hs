@@ -451,6 +451,7 @@ th
 	pre
 	{
 		font-size: 9pt;
+		mc-hyphenate: never;
 	}
 
 	p.TOC3
