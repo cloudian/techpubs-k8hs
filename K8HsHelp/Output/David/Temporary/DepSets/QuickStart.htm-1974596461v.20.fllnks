@@ -7,12 +7,31 @@
   <Links>
     <Link
       Url="Content/Resources/TableStyles/TableCloudian.css" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm" />
   </Links>
   <LongLinks>
     <Link
       Url="Content/Resources/TableStyles/TableCloudian.css" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm#Requirem" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm#Deployin" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm#Setting" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm#Having" />
   </LongLinks>
-  <Anchors />
+  <Anchors>
+    <Anchor
+      Name="Requirem" />
+    <Anchor
+      Name="Deployin" />
+    <Anchor
+      Name="Setting" />
+    <Anchor
+      Name="Having" />
+  </Anchors>
   <Keywords />
   <Concepts />
   <ConceptControlNames />

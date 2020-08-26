@@ -1,15 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="3392" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="4077" MadCap:lastWidth="1352">
     <head>
         <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
         <p style="text-align: center;"><span style="font-size: 18pt; color: #dae691;"><span style="color: #b5cb2b;font-weight: bold;">Cloudian S3 Kubernetes Provisioner Quick Start</span></span>
         </p>
-        <p>The Cloudian S3 Provisioner makes it easy for containerized applications orchestrated by Kubernetes to use Cloudian HyperStore as their S3-driven object storage target. With the S3 Provisioner, you can use familiar Kubernetes resources and tooling to make HyperStore object storage buckets securely available to application pods that have S3 client capabilities. Such applications can then read and write to those object storage buckets using standard S3 API calls, subject to any restrictions that you as the administrator establish when configuring the relevant Kubernetes resources.</p>
-        <h2 id="h2_quick_start">Requirements</h2>
+        <p>The Cloudian S3 Provisioner makes it easy for Kubernetes-orchestrated applications to use Cloudian HyperStore as their S3-driven object storage target. With the S3 Provisioner, you can use familiar Kubernetes resources and tooling to make HyperStore object storage buckets securely available to containerized application that have S3 client capabilities. Such applications can then read and write to those object storage buckets using standard S3 API calls, subject to any restrictions that you as the administrator establish when configuring the relevant Kubernetes resources.</p>
+        <p>This document describes how to deploy the Cloudian S3 Provisioner, create the relevant Kubernetes resources, and have Kubernetes-orchestrated applications use Cloudian S3 object storage. The document assumes a working knowledge of Kubernetes and its tooling.</p>
+        <ul>
+            <li>
+                <MadCap:xref href="#Requirem">Requirements</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Deployin">Deploying the Cloudian S3 Provisioner in Your Kubernetes Cluster</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Setting">Setting Up a Secret and a Storage Class for Cloudian S3 Object Storage</MadCap:xref>
+            </li>
+            <li>
+                <MadCap:xref href="#Having">Having an Application Pod Use Cloudian S3 Object Storage</MadCap:xref>
+            </li>
+        </ul>
+        <h2 id="h2_quick_start"><a name="Requirem"></a>Requirements</h2>
         <table style="width: 100%;mc-table-style: url('../Resources/TableStyles/TableCloudian.css');" class="TableStyle-TableCloudian" cellspacing="0">
-            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 247px;" />
+            <col class="TableStyle-TableCloudian-Column-Regular" style="width: 224px;" />
             <col class="TableStyle-TableCloudian-Column-Regular" />
             <thead>
                 <tr class="TableStyle-TableCloudian-Head-Header1">
@@ -21,36 +36,45 @@
                 <tr class="TableStyle-TableCloudian-Body-LightRows">
                     <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows" style="text-align: center;">HyperStore system</td>
                     <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
-                        <p>HyperStore 7.1.7 or new</p>
-                        <p class="Note" MadCap:autonum="&lt;b&gt;Note &#160;&lt;/b&gt;">If you are using HyperStore 7.1.7, need to enable... (if will have pods access as an IAM&#160;user)</p>
+                        <p>HyperStore version 7.2 or newer, installed and with the follow basic setup tasks completed:</p>
+                        <ul>
+                            <li>At least one storage policy created</li>
+                            <li>A HyperStore user account created, to be used by the S3 Provisioner. Buckets that the S3 Provisioner creates on behalf of your Kubernetes applications will be owned either directly by this account root user, or by IAM&#160;users automatically created under this root user, depending on how you set up the S3 Provisioner.</li>
+                        </ul>
+                        <p>For information about these tasks see your HyperStore product documentation.</p>
                     </td>
                 </tr>
                 <tr class="TableStyle-TableCloudian-Body-DarkerRows">
-                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows" style="text-align: center;">Kubernetes environment</td>
+                    <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows" style="text-align: center;">HyperStore information</td>
                     <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows">
+                        <p>When setting up the S3 Provisioner in your Kubernetes environment you will need the following information from your HyperStore system:</p>
                         <ul>
-                            <li>Kubernetes XX</li>
-                            <li>A&#160;Kubernetes-orchestrate application</li>
+                            <li>The name of the HyperStore service region in which you want the S3 Provisioner to create buckets.</li>
+                            <li>The S3 Service endpoint for that HyperStore service region.</li>
+                            <li>The IAM&#160;Service endpoint for the HyperStore system.</li>
+                            <li>The S3 credentials (access key ID and secret key) for the HyperStore user account that the S3 Provisioner will use.</li>
+                            <li>If you want S3 Provisioner generated buckets to use a HyperStore storage policy other than the default storage policy in your HyperStore system, you will need the storage policy ID (not the policy name but rather the system-generated policy ID). You can see a storage policy's ID in the CMC:&#160;<b>Cluster -&gt; Storage Policies -&gt; View/Edit</b>.</li>
                         </ul>
                     </td>
                 </tr>
                 <tr class="TableStyle-TableCloudian-Body-LightRows">
-                    <td class="TableStyle-TableCloudian-BodyE-Regular-LightRows" style="text-align: center;">Information you will need regarding your HyperStore system</td>
-                    <td class="TableStyle-TableCloudian-BodyD-Regular-LightRows">
+                    <td class="TableStyle-TableCloudian-BodyB-Regular-LightRows" style="text-align: center;">Kubernetes environment</td>
+                    <td class="TableStyle-TableCloudian-BodyA-Regular-LightRows">
                         <ul>
-                            <li>S3 Service endpoint (available CMC...)</li>
-                            <li>IAM&#160;Service endpoint ("&#160;&#160;&#160;")</li>
-                            <li>Storage policy IDs (CMC...)</li>
+                            <li>Kubernetes version XX</li>
+                            <li>A&#160;containerized application with S3 client capabilities, that you will run in your Kubernetes cluster.</li>
+                            <li>The HyperStore S3 Service endpoint and IAM&#160;Service endpoint must be resolvable from your Kubernetes cluster.</li>
                         </ul>
                     </td>
                 </tr>
-                <tr class="TableStyle-TableCloudian-Body-DarkerRows">
-                    <td class="TableStyle-TableCloudian-BodyB-Regular-DarkerRows" style="text-align: center;">&#160;</td>
-                    <td class="TableStyle-TableCloudian-BodyA-Regular-DarkerRows">&#160;</td>
-                </tr>
             </tbody>
         </table>
-        <p>&#160;</p>
+        <h2 id="h2_quick_start"><a name="Deployin"></a>Deploying the Cloudian S3 Provisioner in Your Kubernetes Cluster</h2>
+        <p>xx</p>
+        <h2 id="h2_quick_start"><a name="Setting"></a>Setting Up a Secret and a Storage Class for Cloudian S3 Object Storage</h2>
+        <p>xx</p>
+        <h2 id="h2_quick_start"><a name="Having"></a>Having an Application Pod Use Cloudian S3 Object Storage</h2>
+        <p>xx</p>
         <p>&#160;</p>
         <p>DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL</p>
         <p>This guide shows you how to deploy the Cloudian S3 Provisioner for Kubernetes to allow you to use Object Bucket Claim, so your deployments have easy access to HyperStore buckets.</p>
