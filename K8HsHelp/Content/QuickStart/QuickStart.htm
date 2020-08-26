@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="4788" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="4843" MadCap:lastWidth="1352">
     <head>
         <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
     <body>
         <p style="text-align: center;"><span style="font-size: 18pt; color: #dae691;"><span style="color: #b5cb2b;font-weight: bold;">Cloudian Kubernetes S3 Operator Quick Start</span></span>
         </p>
-        <p>The Cloudian S3 Provisioner makes it easy for Kubernetes-orchestrated applications to use Cloudian HyperStore as their S3-driven object storage target. With the S3 Provisioner, you can use familiar Kubernetes resources and tooling to make HyperStore object storage buckets securely available to containerized application that have S3 client capabilities. Such applications can then read and write to those object storage buckets using standard S3 API calls, subject to any restrictions that you as the administrator establish when configuring the relevant Kubernetes resources.</p>
-        <p>This document describes how to deploy the Cloudian S3 Provisioner, create the relevant Kubernetes resources, and have Kubernetes-orchestrated applications use Cloudian S3 object storage. The document assumes a working knowledge of Kubernetes and its tooling.</p>
+        <p>The Cloudian Kubernetes S3 Operator makes it easy for Kubernetes-orchestrated applications to use Cloudian HyperStore as their S3-driven object storage target. With the Cloudian S3 Operator, you can use familiar Kubernetes resources and tooling to make HyperStore object storage buckets securely available to containerized application that have S3 client capabilities. Such applications can then read and write to those object storage buckets using standard S3 API calls, subject to any restrictions that you as the administrator establish when configuring the relevant Kubernetes resources.</p>
+        <p>This document describes how to deploy the Cloudian S3 Operator, create the relevant Kubernetes resources, and have Kubernetes-orchestrated applications use Cloudian S3 object storage. The document assumes a working knowledge of Kubernetes and its tooling.</p>
         <ul>
             <li>
                 <MadCap:xref href="#Requirem">Requirements</MadCap:xref>
@@ -39,7 +39,7 @@
                         <p>HyperStore version 7.2 or newer, installed and with the follow basic setup tasks completed:</p>
                         <ul>
                             <li>At least one storage policy created</li>
-                            <li>A HyperStore user account created, to be used by the S3 Provisioner. Buckets that the S3 Provisioner creates on behalf of your Kubernetes applications will be owned either directly by this account root user, or by IAM&#160;users automatically created under this root user, depending on how you set up the S3 Provisioner.</li>
+                            <li>A HyperStore user account created, to be used by the Cloudian S3 Operator. Buckets that the Cloudian S3 Operator creates on behalf of your Kubernetes applications will be owned either directly by this account root user, or by IAM&#160;users automatically created under this root user, depending on how you set up the Cloudian S3 Operator.</li>
                         </ul>
                         <p>For information about these tasks see your HyperStore product documentation.</p>
                     </td>
@@ -47,13 +47,13 @@
                 <tr class="TableStyle-TableCloudian-Body-DarkerRows">
                     <td class="TableStyle-TableCloudian-BodyE-Regular-DarkerRows" style="text-align: center;">HyperStore information</td>
                     <td class="TableStyle-TableCloudian-BodyD-Regular-DarkerRows">
-                        <p>When setting up the S3 Provisioner in your Kubernetes environment you will need the following information from your HyperStore system:</p>
+                        <p>When setting up the Cloudian S3 Operator in your Kubernetes environment you will need the following information from your HyperStore system:</p>
                         <ul>
-                            <li>The name of the HyperStore service region in which you want the S3 Provisioner to create buckets.</li>
+                            <li>The name of the HyperStore service region in which you want the Cloudian S3 Operator to create buckets.</li>
                             <li>The S3 Service endpoint for that HyperStore service region.</li>
                             <li>The IAM&#160;Service endpoint for the HyperStore system.</li>
-                            <li>The S3 credentials (access key ID and secret access key) for the HyperStore user account that the S3 Provisioner will use.</li>
-                            <li>If you want S3 Provisioner generated buckets to use a HyperStore storage policy other than the default storage policy in your HyperStore system, you will need the storage policy ID (not the policy name but rather the system-generated policy ID). You can see a storage policy's ID in the CMC:&#160;<b>Cluster -&gt; Storage Policies -&gt; View/Edit</b>.</li>
+                            <li>The S3 credentials (access key ID and secret access key) for the HyperStore user account that the Cloudian S3 Operator will use.</li>
+                            <li>If you want Cloudian S3 Operator generated buckets to use a HyperStore storage policy other than the default storage policy in your HyperStore system, you will need the storage policy ID (not the policy name but rather the system-generated policy ID). You can see a storage policy's ID in the CMC:&#160;<b>Cluster -&gt; Storage Policies -&gt; View/Edit</b>.</li>
                         </ul>
                     </td>
                 </tr>
@@ -69,16 +69,16 @@
                 </tr>
             </tbody>
         </table>
-        <h2 id="h2_quick_start"><a name="Deployin"></a>Deploying the Cloudian S3 Provisioner in Your Kubernetes Cluster</h2>
+        <h2 id="h2_quick_start"><a name="Deployin"></a>Deploying the Cloudian S3 Operator in Your Kubernetes Cluster</h2>
         <p>Deploying the Cloudian Kubernetes S3 Operator in your Kubernetes cluster will enable you to use a combination of standard Kubernetes resources (Secret and StorageClass) and custom Kubernetes resources (ObjectBucket and ObjectBucketClaim) to automate the provisioning of Cloudian HyperStore object storage for your containerized applications. The ObjectBucket/ObjectBucketClaim provisioning model for Kubernetes is analogous to how the standard PersistentVolume and PersistentVolumeClaim (PV/PVC) resources work for block and file storage, except with custom resources tailored to the requirements of object storage.</p>
         <p>In the steps below it is assumed that you are on a machine with internet access. Also, here and throughout the remainder of the instructions in this document it is assumed that the Kubernetes command line tool <em>kubectl</em> is in your path and that you have permissions to run it.</p>
-        <p>To deploy the Cloudian S3 Provisioner in your Kubernetes cluster, first run these commands to create the ObjectBucket and ObjectBucketClaim custom resource definitions:</p><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
-        <p>Next, run this command to deploy the Cloudian S3 Provisioner:</p><pre>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/hyperstore/examples/cloudian-s3-provisioner.yaml</pre>
-        <p>This deploys a provisioner in the <em>s3-provisioner</em> namespace.</p>
+        <p>First, run these commands to create the ObjectBucket and ObjectBucketClaim custom resource definitions in your Kubernetes cluster:</p><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
+        <p>These custom resource definitions (CRDs) are not specific to Cloudian HyperStore. They are general purpose CRDs for provisioning object storage for Kubernetes clusters. The Cloudian S3 Operator utilizes these CRDs.</p>
+        <p>Next, run this command to deploy the Cloudian S3 Operator in your Kubernetes cluster:</p><pre>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/hyperstore/examples/cloudian-s3-provisioner.yaml</pre>
+        <p>This deploys a provisioner in the <em>cloudian-s3-operator</em> namespace.</p>
         <h2 id="h2_quick_start"><a name="Setting"></a>Creating a Kubernetes Secret and a Storage Class for Cloudian S3 Object Storage</h2>
-        <p>Next you will create a Kubernetes Secret that encapsulates the S3 security credentials of the HyperStore user account that  the S3 Provisioner will use (as noted in the <MadCap:xref href="#Requirem">Requirements</MadCap:xref> section of this document). When creating the Secret you will need the access key ID and the secret access key to be base64 encoded, without any newline. You can create the base64 encoding by running the following command:</p><pre>echo -n &lt;raw key&gt; | base64</pre>
-        <p>Do this for the access key ID and also for the secret access key.</p>
-        <p>With the base64 encoded S3 credentials at hand, create a file named owner-secret.yaml with the following content:</p><pre xml:space="preserve">apiVersion: v1
+        <p>Next you will create a Kubernetes Secret that encapsulates the S3 security credentials of the HyperStore user account that  the Cloudian S3 Operator will use (as noted in the <MadCap:xref href="#Requirem">Requirements</MadCap:xref> section of this document). When creating the Secret you will need the access key ID and the secret access key to be base64 encoded, without any newline. You can create the base64 encodings by running the following commands:</p><pre xml:space="preserve">echo -n &lt;raw access key id&gt; | base64</pre><pre xml:space="preserve">echo -n &lt;raw secret access key&gt; | base64</pre>
+        <p>With the base64 encoded S3 credentials at hand, create a file named <em>owner-secret.yaml</em> with the following content:</p><pre xml:space="preserve">apiVersion: v1
 kind: Secret
 metadata:
   name: s3-bucket-owner
@@ -87,7 +87,7 @@ type: Opaque
 data:
   AWS_ACCESS_KEY_ID: &lt;base64_encoded_access_key_id&gt;
   AWS_SECRET_ACCESS_KEY: &lt;base64_encoded_secret_access_key&gt;</pre>
-        <p>&#160;</p>
+        <p>Then apply it to your cluster with this command:</p><pre>kubectl apply -f owner-secret.yaml</pre>
         <h2 id="h2_quick_start"><a name="Having"></a>Having an Application Pod Use Cloudian S3 Object Storage</h2>
         <p>xx</p>
         <p>&#160;</p>
