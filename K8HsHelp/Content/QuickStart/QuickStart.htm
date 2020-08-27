@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="6340" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="7006" MadCap:lastWidth="1352">
     <head>
         <link href="../Resources/TableStyles/TableCloudian.css" rel="stylesheet" MadCap:stylesheetType="table" />
     </head>
@@ -72,13 +72,13 @@
         <h2 id="h2_quick_start"><a name="Deployin"></a>Deploying the Cloudian S3 Operator in Your Kubernetes Cluster</h2>
         <p>Deploying the Cloudian Kubernetes S3 Operator in your Kubernetes cluster will enable you to use a combination of standard Kubernetes resources (Secret and StorageClass) and custom Kubernetes resources (ObjectBucket and ObjectBucketClaim) to automate the provisioning of Cloudian HyperStore object storage for your containerized applications. The ObjectBucket/ObjectBucketClaim provisioning model for Kubernetes is analogous to how the standard PersistentVolume and PersistentVolumeClaim (PV/PVC) resources work for block and file storage, except with custom resources tailored to the requirements of object storage.</p>
         <p>In the steps below it is assumed that you are on a machine with internet access. Also, here and throughout the remainder of the instructions in this document it is assumed that the Kubernetes command line tool <em>kubectl</em> is in your path and that you have permissions to run it.</p>
-        <p>First, run these commands to create the ObjectBucket and ObjectBucketClaim custom resource definitions in your Kubernetes cluster:</p><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre><pre>kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
+        <p>First, run these commands to create the ObjectBucket and ObjectBucketClaim custom resource definitions in your Kubernetes cluster:</p><pre># kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucket_crd.yaml</pre><pre># kubectl apply -f https://raw.githubusercontent.com/kube-object-storage/lib-bucket-provisioner/master/deploy/crds/objectbucket_v1alpha1_objectbucketclaim_crd.yaml</pre>
         <p>These custom resource definitions (CRDs) are not specific to Cloudian HyperStore. They are general purpose CRDs for provisioning object storage for Kubernetes clusters. The Cloudian S3 Operator utilizes these CRDs.</p>
-        <p>Next, run this command to deploy the Cloudian S3 Operator in your Kubernetes cluster:</p><pre>kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/hyperstore/examples/cloudian-s3-provisioner.yaml</pre>
+        <p>Next, run this command to deploy the Cloudian S3 Operator in your Kubernetes cluster:</p><pre># kubectl apply -f https://raw.githubusercontent.com/cloudian/cloudian-s3-operator/hyperstore/examples/cloudian-s3-provisioner.yaml</pre>
         <p>This deploys a provisioner in the <em>cloudian-s3-operator</em> namespace.</p>
         <h2 id="h2_quick_start"><a name="Setting"></a>Creating a Kubernetes Secret and a Storage Class for Cloudian S3 Object Storage</h2>
         <h3 id="h3_quick_start"><a name="Create"></a>Create the Bucket Owner Secret</h3>
-        <p>Next you will create a Kubernetes Secret that encapsulates the S3 security credentials of the HyperStore user account that  the Cloudian S3 Operator will use when it provisions buckets (the account noted in the <MadCap:xref href="#Requirem">Requirements</MadCap:xref> section of this document). When creating the Secret you will need the S3 access key ID and the secret access key to be base64 encoded, without any newline. You can create the base64 encodings by running the following commands:</p><pre xml:space="preserve">echo -n &lt;raw access key id&gt; | base64</pre><pre xml:space="preserve">echo -n &lt;raw secret access key&gt; | base64</pre>
+        <p>Next you will create a Kubernetes Secret that encapsulates the S3 security credentials of the HyperStore user account that  the Cloudian S3 Operator will use when it provisions buckets (the account noted in the <MadCap:xref href="#Requirem">Requirements</MadCap:xref> section of this document). When creating the Secret you will need the S3 access key ID and the secret access key to be base64 encoded, without any newline. You can create the base64 encodings by running the following commands:</p><pre xml:space="preserve"># echo -n &lt;raw access key id&gt; | base64</pre><pre xml:space="preserve"># echo -n &lt;raw secret access key&gt; | base64</pre>
         <p>With the base64 encoded S3 credentials at hand, create a file named <em>owner-secret.yaml</em> with the following content:</p><pre xml:space="preserve">apiVersion: v1
 kind: Secret
 metadata:
@@ -88,7 +88,7 @@ type: Opaque
 data:
   AWS_ACCESS_KEY_ID: &lt;base64_encoded_access_key_id&gt;
   AWS_SECRET_ACCESS_KEY: &lt;base64_encoded_secret_access_key&gt;</pre>
-        <p>Then apply it to your cluster with this command:</p><pre>kubectl apply -f owner-secret.yaml</pre>
+        <p>Then apply it to your cluster with this command:</p><pre># kubectl apply -f owner-secret.yaml</pre>
         <h3 id="h3_quick_start">Create One or More Storage Classes</h3>
         <p>Next, create at least one Storage Class for Cloudian object storage. A Storage Class is a standard Kubernetes resource that you have likely used before for other types of storage, but in this case the specified provisioner will be the Cloudian S3 Operator and the parameters will be specific to the needs of object storage provisioning. If you wish you can create multiple Storage Classes for Cloudian object storage -- for example, one Storage Class for "greenfield" storage (each application pod deployment gets access to a newly created, empty bucket in Cloudian HyperStore) and one Storage Class for "brownfield" storage (each application pod deployment gets access to an existing bucket in Cloudian HyperStore). Greenfield and brownfield Storage Class configurations are both described below.</p>
         <p><b>To create a Storage Class for greenfield Cloudian object storage</b>, create a file named <em>storageclass-greenfield.yaml</em> with the following content:</p><pre xml:space="preserve">kind: StorageClass
@@ -110,7 +110,7 @@ parameters:
 reclaimPolicy: Delete   <b>[8]</b></pre>
         <ol>
             <li>Unique name for this Storage Class, for example <em>hyperstore-greenfield</em>.</li>
-            <li>This references the name of the Secret that you created in the preceding step.</li>
+            <li>This references the name of the bucket owner Secret that you created previously.</li>
             <li>This is the S3 Service endpoint of the HyperStore service region in which you want buckets to be created, and should be specified in the form of a URL -- for example <em>http://s3-region1.mycloudianhyperstore.com:80</em></li>
             <li>This is the IAM Service endpoint of your HyperStore system, and should be specified in the form of a URL -- for example <em>http://iam.mycloudianhyperstore.com:16080</em></li>
             <li>If you want newly created buckets to use a HyperStore storage policy other than the default storage policy, specify the storage policy ID&#160;here (for background information see the <MadCap:xref href="#Requirem">Requirements</MadCap:xref> section). If you want newly created buckets to use the default HyperStore storage policy, omit the <em>storagePolicyId</em> parameter.</li>
@@ -130,7 +130,33 @@ reclaimPolicy: Delete   <b>[8]</b></pre>
         <ol MadCap:continue="true">
             <li>With <em>reclaimPolicy</em> set to <em>Delete</em>, the bucket will be automatically deleted when the Object Bucket Claim is deleted.</li>
         </ol>
-        <p>&#160;</p>
+        <p>To apply the greenfield Storage Class from above, run this command:</p><pre xml:space="preserve"># kubectl apply -f storageclass-greenfield.yaml</pre>
+        <p><b>To create a Storage Class for brownfield Cloudian object storage</b>, create a file named <em>storageclass-brownfield.yaml</em> with the following content:</p><pre xml:space="preserve">kind: StorageClass
+apiVersion: storage.k8s.io/v1
+metadata:
+  name: &lt;storage class name&gt;   <b>[1]</b>
+provisioner: cloudian-s3.io/bucket
+parameters:
+  region: &lt;hyperstore service region&gt;
+  secretName: s3-bucket-owner   <b>[2]</b>
+  secretNamespace: cloudian-s3-operator
+  bucketName: &lt;existing bucket in HyperStore&gt;   <b>[3]</b>
+  s3Endpoint: &lt;S3 service endpoint&gt;   <b>[4]</b>
+  iamEndpoint: &lt;IAM service endpoint&gt;   <b>[5]</b>
+  createBucketUser: &lt;optional override of creating an IAM&#160;user per pod deployment&gt;   <b>[6]</b>
+  bucketClaimUserSecretName: &lt;optional dedicated Secret for bucket access&gt;   <b>[6]</b>
+  bucketClaimUserSecretNamespace: &lt;only if bucketClaimUserSecretName is set&gt;   <b>[6]</b>
+  iamPolicy: &lt;optional IAM policy document&gt;   <b>[6]</b>
+</pre>
+        <ol>
+            <li>Unique name for this Storage Class, for example <em>hyperstore-brownfield</em>.</li>
+            <li>This references the name of the bucket owner Secret that you created previously.</li>
+            <li>This is the name of an existing bucket in HyperStore, which will be used for all bucket claims associated with this Storage Class. This must be a bucket that is owned by the HyperStore account root user whose S3 credentials are encapsulated in the bucket owner Secret.</li>
+            <li>This is the S3 Service endpoint of the HyperStore service region in which the bucket exists, and should be specified in the form of a URL -- for example <em>http://s3-region1.mycloudianhyperstore.com:80</em></li>
+            <li>This is the IAM Service endpoint of your HyperStore system, and should be specified in the form of a URL -- for example <em>http://iam.mycloudianhyperstore.com:16080</em></li>
+            <li>For descriptions of the <em>createBucketUser</em>, <em>bucketClaimUserSecretName</em>, <em>bucketClaimUserSecretNamespace</em>, and <em>iamPolicy</em> parameters, see the "greenfield" Cloudian object storage instructions. </li>
+        </ol>
+        <p>To apply the greenfield Storage Class from above, run this command:</p><pre xml:space="preserve"># kubectl apply -f storage-class.yaml</pre>
         <p>&#160;</p>
         <p>&#160;</p>
         <p>&#160;</p>
