@@ -21,6 +21,8 @@
       Url="Content/QuickStart/QuickStart.htm#Setting" />
     <Link
       Url="Content/QuickStart/QuickStart.htm#Having" />
+    <Link
+      Url="Content/QuickStart/QuickStart.htm#Create" />
   </LongLinks>
   <Anchors>
     <Anchor
@@ -29,6 +31,8 @@
       Name="Deployin" />
     <Anchor
       Name="Setting" />
+    <Anchor
+      Name="Create" />
     <Anchor
       Name="Having" />
   </Anchors>
