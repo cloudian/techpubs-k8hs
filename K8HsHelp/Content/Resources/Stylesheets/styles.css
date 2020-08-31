@@ -469,6 +469,12 @@ th
 	{
 		font-size: 11pt;
 	}
+
+	h2.qs-numbered
+	{
+		mc-auto-number-format: '{n+}.  ';
+		font-size: 15pt;
+	}
 }
 
 MadCap|dropDownHead.CloudianChildDropDown	/*Just testing creating a style*/
@@ -600,5 +606,14 @@ h4#h4_quick_start
 {
 	mc-heading-level: 0;
 	mc-auto-number-position: none;
+}
+
+h2.qs-numbered
+{
+	margin-bottom: 4px;
+	margin-top: 20px;
+	color: #b7ce2c;
+	font-size: 1.3em;
+	font-weight: bold;
 }
 
