@@ -178,9 +178,9 @@ spec:
         <h3 id="h3_quick_start"> Creating an Application Pod That Uses the Object Bucket Claim</h3>
         <p>To have an application pod use an Object Bucket Claim, when you create the application pod include the following lines within the <em>containers</em> section of the pod's manifest file:</p><pre xml:space="preserve">    envFrom:
     - configMapRef:
-        name: &lt;name of config map -- this is the <b>same as the name of the object bucket claim</b>&gt;
+        name: &lt;name of config map -- <b>same as the name of the object bucket claim</b>&gt;
     - secretRef:
-        name: &lt;name of secrete -- this is the <b>same as the name of the object bucket claim</b>&gt;</pre>
+        name: &lt;name of secret -- <b>same as the name of the object bucket claim</b>&gt;</pre>
         <p>For example, if the OBC is named <em>cloudian-greenfield</em> the application pod's manifest would look something like this:</p><pre xml:space="preserve">apiVersion: v1
 kind: Pod
 metadata:
