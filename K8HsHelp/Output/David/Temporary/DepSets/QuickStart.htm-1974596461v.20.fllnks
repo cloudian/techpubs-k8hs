@@ -20,6 +20,8 @@
     <Link
       Url="Content/QuickStart/QuickStart.htm#Having" />
     <Link
+      Url="Content/QuickStart/QuickStart.htm#Verifyin" />
+    <Link
       Url="Content/QuickStart/QuickStart.htm#Create" />
   </LongLinks>
   <Anchors>
@@ -35,6 +37,8 @@
       Name="Create" />
     <Anchor
       Name="Having" />
+    <Anchor
+      Name="Verifyin" />
   </Anchors>
   <Keywords />
   <Concepts />
