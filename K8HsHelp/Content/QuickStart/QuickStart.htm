@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="6" MadCap:lastHeight="7820" MadCap:lastWidth="1352">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="6" MadCap:lastHeight="8432" MadCap:lastWidth="1352">
     <head>
     </head>
     <body>
@@ -88,7 +88,7 @@ parameters:
   iamPolicy: &lt;optional IAM policy document&gt;   <b>[8]</b>
 reclaimPolicy: Delete   <b>[9]</b></pre>
         <ol>
-            <li>Name to give to this Storage Class, for example <em>hyperstore-greenfield</em>. This will be referenced in the object bucket claim.</li>
+            <li>Name to give to this Storage Class, for example <em>hyperstore-greenfield</em>. This will by referenced object bucket claims that use this Storage Class.</li>
             <li>Name of the HyperStore service region in which you want greenfield object storage buckets to be created.</li>
             <li>This references the name of the bucket owner Secret that you created previously.</li>
             <li>The S3 Service endpoint of the HyperStore service region named by the region parameter. Specify the endpoint in the form of a URL -- for example <em>http://s3-region1.mycloudianhyperstore.com</em>. If the port number is not 80, include the port number at the end of the URL (<em>:&lt;port#&gt;</em>). Important:&#160;Be sure your Kubernetes cluster can resolve this endpoint.</li>
@@ -108,7 +108,7 @@ reclaimPolicy: Delete   <b>[9]</b></pre>
 }</pre>
         </div>
         <ol MadCap:continue="true">
-            <li>With <em>reclaimPolicy</em> set to <em>Delete</em>, the bucket will be automatically deleted when the object bucket claim is deleted. Alternatively you could set this to <em>Retain</em> in which the bucket will not be deleted when the object bucket claim is deleted.</li>
+            <li>With <em>reclaimPolicy</em> set to <em>Delete</em>, the bucket will be automatically deleted when the object bucket claim is deleted. Alternatively you could set this to <em>Retain</em> in which case the bucket will not be deleted when the object bucket claim is deleted.</li>
         </ol>
         <p>Then create the resource in your cluster with this command:</p><pre xml:space="preserve"># kubectl apply -f storageclass-greenfield.yaml</pre>
         <p><b>To create a Storage Class for brownfield Cloudian object storage</b>, create a file named <em>storageclass-brownfield.yaml</em> with the following content:</p><pre xml:space="preserve">kind: StorageClass
@@ -129,7 +129,7 @@ parameters:
   iamPolicy: &lt;optional IAM policy document&gt;   <b>[6]</b>
 </pre>
         <ol>
-            <li>Name to give to this Storage Class, for example <em>hyperstore-brownfield</em>. This will be referenced in the object bucket claim.</li>
+            <li>Name to give to this Storage Class, for example <em>hyperstore-brownfield</em>. This will by referenced object bucket claims that use this Storage Class.</li>
             <li>The HyperStore service region in which the bucket named by the <em>bucketName</em> parameter is located.</li>
             <li>This references the name of the bucket owner Secret that you created previously.</li>
             <li>This is the name of an existing bucket in HyperStore, which will be used for all bucket claims associated with this Storage Class. This must be a bucket that is owned by the HyperStore account root user whose S3 credentials are encapsulated in the bucket owner Secret.</li>
@@ -138,23 +138,39 @@ parameters:
         </ol>
         <p>Then create the resource in your cluster with this command:</p><pre xml:space="preserve"># kubectl apply -f storageclass-brownfield.yaml</pre>
         <h2 id="h2_quick_start"><a name="Having"></a>Having a Containerized Application Use Cloudian S3 Object Storage</h2>
-        <p>Once you've deployed the Cloudian S3 Operator and create a Secret and one or more Storage Classes, then DevOps users can easily utilize Cloudian S3-compatible object storage by creating an Object Bucket Claim (OBC) for their containerized application to use. This is very much like a Persistent Volume Claim, a mechanism with which most DevOps users will be familiar</p>
-        <h3 id="h3_quick_start">Create an Object Bucket Claim</h3>
-        <p>&#160;</p><pre xml:space="preserve">apiVersion: objectbucket.io/v1alpha1
+        <p>Once the Cloudian S3 Operator has been deployed in the cluster and a bucket owner Secret and one or more Storage Classes have been created, then DevOps users can easily utilize Cloudian S3-compatible object storage on demand by creating an Object Bucket Claim (OBC) for their containerized application to use. This is very much like a Persistent Volume Claim (PVC) -- a mechanism with which most DevOps users will be familiar -- except an OBC is simpler in its contents than a PVC. When the Cloudian S3 Operator detects a new OBC it will either provision a new bucket in HyperStore (in the case of a greenfield OBC) or gain access to an existing HyperStore bucket (in the case of a brownfield OBC). It also generates Kubernetes resources corresponding to the OBC&#160;-- an Object Bucket (OB), a Config Map, and a Secret -- that can then be consumed by application pods.</p>
+        <h3 id="h3_quick_start"> Create an Object Bucket Claim</h3>
+        <p>A greenfield OBC -- for which a new HyperStore bucket will be created -- references the greenfield object storage class, and provides information about how to name the newly created bucket. A brownfield OBC -- for which an existing HyperStore bucket will be used -- references the brownfield object storage class, and does not specify any bucket naming information.</p>
+        <p><b>To create an Object Bucket Claim for greenfield Cloudian object storage</b>, create a file named <em>obc-greenfield.yaml</em> with the following content:</p><pre xml:space="preserve">apiVersion: objectbucket.io/v1alpha1
 kind: ObjectBucketClaim
 metadata:
   name: &lt;OBC name&gt;   <b>[1]</b>
-  namespace: cloudian-s3-operator
 spec:
   generateBucketName: &lt;greenfield bucket name prefix&gt;   <b>[2</b>]
   bucketName: &lt;greenfield bucket full name&gt;   <b>[2]</b>
-  storageClassName: &lt;name of an object storage class that you created&gt;   <b>[3]</b></pre>
+  storageClassName: &lt;name of the greenfield object storage class&gt;   <b>[3]</b></pre>
         <ol>
             <li>Name to give to this Object Bucket Claim.</li>
-            <li>For a brownfield OBC, omit the <em>generateBucketName</em> and <em>bucketName</em> parameters (instead the bucket name will come from the brownfield storage class that you specify with the <em>storageClassName</em> parameter). For a greenfield OBC, you can use the <em>generateBucketName</em> to specify a bucket name prefix to which the Cloudian S3 Operator will append a random string to automatically create the full bucket name (a good approach for ensuring that the bucket has a unique name within HyperStore), and omit the <em>bucketName</em> parameter.  Or if you prefer you can omit the <em>generateBucketName</em> parameter and use the <em>bucketName</em> parameter to specify a full bucket name. If you mistakenly include both parameters and assign values to both, the <em>bucketName</em> parameter will override the <em>generateBucketName</em> parameter. </li>
-            <li>Name of the storage class that this OBC will use, for example <em>hyperstore-greenfield</em> or <em>hyperstore-brownfield</em>.</li>
+            <li>For a greenfield OBC, you can either use the <em>generateBucketName</em> to specify a bucket name prefix to which the Cloudian S3 Operator will append a random string to automatically create the full bucket name, and omit the <em>bucketName</em> parameter (a good approach for ensuring that the bucket has a unique name within HyperStore); <b>or</b> omit the <em>generateBucketName</em> parameter and use the <em>bucketName</em> parameter to specify a full unique bucket name. If you mistakenly include both parameters and assign values to both, the <em>bucketName</em> parameter will override the <em>generateBucketName</em> parameter.</li>
+            <li>Name of the greenfield storage class that this OBC will use, for example <em>hyperstore-greenfield</em>.</li>
         </ol>
-        <p>Then create the resource in your cluster with this command [TBD]:</p><pre xml:space="preserve"># kubectl apply -f FILENAME</pre>
+        <p>Then create the resource with this command:</p><pre xml:space="preserve"># kubectl apply -f obc-greenfield.yaml</pre>
+        <p><b>To create an Object Bucket Claim for brownfield Cloudian object storage</b>, create a file named <em>obc-brownfield.yaml</em> with the following content:</p><pre xml:space="preserve">apiVersion: objectbucket.io/v1alpha1
+kind: ObjectBucketClaim
+metadata:
+  name: &lt;OBC name&gt;   <b>[1]</b>
+spec:
+  storageClassName: &lt;name of the brownfield object storage class&gt;   <b>[2]</b></pre>
+        <ol>
+            <li>Name to give to this Object Bucket Claim.</li>
+            <li>Name of the storage class that this OBC will use, for example  <em>hyperstore-brownfield</em>. Note that there is no need to specify a bucket name in the OBC -- instead the bucket name is specified within the configuration of the brownfield storage class that the OBC is using.</li>
+        </ol>
+        <p>Then create the resource with this command:</p><pre xml:space="preserve"># kubectl apply -f obc-brownfield.yaml</pre>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
+        <p>&#160;</p>
         <p>&#160;</p>
         <p style="font-weight: bold;">DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL</p>
         <p style="font-weight: bold;">DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL DEPLOY.MD ORIGINAL</p>
