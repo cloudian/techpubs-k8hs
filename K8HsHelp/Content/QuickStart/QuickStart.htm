@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="7207" MadCap:lastWidth="1304">
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" MadCap:searchable="False" MadCap:lastBlockDepth="8" MadCap:lastHeight="7302" MadCap:lastWidth="1304">
     <head>
     </head>
     <body>
@@ -222,8 +222,10 @@ containers:
   restartPolicy: Never</pre>
         <p>Create the resources in your cluster:</p><pre xml:space="preserve">kubectl apply -f test.yaml
 </pre>
-        <p>Wait a moment and then confirm that the pod has been successfully created by running the <em>kubectl get pods</em> command and verifying that the <em>test-setup-check</em> pod's status is Completed. </p>
-        <p>Then log into the CMC using the bucket owner account. You should see that a bucket has been created, with a bucket name that starts with the prefix <em>test-setup-check</em> (as specified by the <em>generateBucketName</em> parameter in the manifest above). You should also see that an IAM&#160;user has been created with a name similar to the bucket name (if your greenfield object Storage Class uses the default behavior of creating a new IAM&#160;user for each OBC).</p>
+        <p>Wait a moment and then confirm that the pod has been successfully created:</p><pre>kubectl get pods</pre>
+        <p>In the command response, verify that the <em>test-setup-check</em> pod's status is Completed. Next view the log for the pod:</p><pre xml:space="preserve">kubectl logs test-setup-check</pre>
+        <p>You should see the environmental variables that will be used for accessing the Cloudian object storage system, including the name of the bucket.</p>
+        <p>Next, log into the CMC using the bucket owner account. In the <b>Buckets &amp; Objects</b> section of the CMC you should see that the bucket has been created. In the <b>IAM</b> section you should see that an IAM&#160;user has been created with a name similar to the bucket name (if your greenfield object Storage Class uses the default behavior of creating a new IAM&#160;user for each OBC).</p>
         <p>After confirming the presence of the bucket and the IAM&#160;user, delete the test OBC and pod:</p><pre>kubectl delete -f test.yaml</pre>
         <p>Wait for a moment, then in the CMC you should see that the bucket and IAM user have been deleted.</p>
     </body>
