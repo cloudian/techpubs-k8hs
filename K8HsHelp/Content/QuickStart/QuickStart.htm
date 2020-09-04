@@ -37,7 +37,7 @@
         <p>If you have not already done so, complete the following basic setup tasks in your HyperStore system before deploying the Cloudian S3 Operator in your Kubernetes cluster:</p>
         <ul>
             <li>Create <b>at least one storage policy</b>.</li>
-            <li>Create <b>a HyperStore user account</b>, to be used by the Cloudian S3 Operator. This needs to be a regular user (what Amazon Web Services calls an "account root user"), not an IAM user. <ul><li><b>Optionally, create a bucket</b> under this account if you will want to support  "brownfield" object storage for your Kubernetes cluster (where multiple object bucket claims share the same pre-existing bucket). If you intend to support only "greenfield" object storage (where each object bucket claim gets its own newly created bucket), you do not need to manually create a bucket -- instead, for each object bucket claim the Cloudian S3 Operator will dynamically create a new bucket under this user account. You will be able to configure brownfield and/or greenfield object storage classes for your Kubernetes users as described later in this document.</li><li><b>Optionally, create an IAM&#160;user</b> under this account if you will want multiple object bucket claims to access buckets as the same shared pre-existing IAM&#160;user.  If you prefer to always have the Cloudian S3 Operator dynamically create a new IAM user under this user account for each object bucket claim (and automatically delete the IAM&#160;user when the claim ends), you do not need to manually create an IAM&#160;user. You will be able to control whether or not the Cloudian S3 Operator creates IAM&#160;users per claim when you configure object storage classes for your Kubernetes users as described later in this document. If you do manually create an IAM user for claims to share,  be sure to give the IAM&#160;user permissions to access the bucket that you've manually created under this account (if you want to only support brownfield object storage) or permissions to access <b>all</b> buckets created under the user root account (if you want to support greenfield object storage in addition to or instead of  brownfield storage).</li></ul></li>
+            <li>Create <b>a HyperStore user account</b>, to be used by the Cloudian S3 Operator. This needs to be a regular user (what Amazon Web Services calls an "account root user"), not an IAM user. <ul><li><b>Optionally, create a bucket</b> under this account if you will want to support  "brownfield" object storage for your Kubernetes cluster (where multiple object bucket claims share the same pre-existing bucket). If you intend to support only "greenfield" object storage (where each object bucket claim gets its own newly created bucket), you do not need to manually create a bucket -- instead, for each object bucket claim the Cloudian S3 Operator will dynamically create a new bucket under this user account. You will be able to configure brownfield and/or greenfield object storage classes for your Kubernetes users as described later in this document.</li><li><b>Optionally, create an IAM&#160;user</b> under this account if you will want multiple object bucket claims to access buckets as the same shared pre-existing IAM&#160;user.  If you prefer to always have the Cloudian S3 Operator dynamically create a new IAM user under this user account for each object bucket claim (and automatically delete the IAM&#160;user when the claim ends), you do not need to manually create an IAM&#160;user. You will be able to control whether or not the Cloudian S3 Operator creates IAM&#160;users per claim when you configure object storage classes for your Kubernetes users as described later in this document. If you do manually create an IAM user for claims to share,  be sure to give the IAM&#160;user permissions to access the bucket that you've manually created under the user root account (if you want to only support brownfield object storage) or permissions to access <b>all</b> buckets created under the user root account (if you want to support greenfield object storage in addition to or instead of  brownfield storage).</li></ul></li>
         </ul>
         <p>For detail about performing these HyperStore tasks see your HyperStore product documentation.</p>
         <p>When setting up the Cloudian S3 Operator in your Kubernetes environment you will need the following <b>information from your HyperStore system</b>:</p>
@@ -168,7 +168,7 @@ metadata:
   name: &lt;OBC name&gt;   <b>[1]</b>
   namespace: &lt;optional OBC namespace&gt;   <b>[2]</b>
 spec:
-  storageClassName: &lt;name of the brownfield object storage class&gt;   <b>[2]</b></pre>
+  storageClassName: &lt;name of the brownfield object storage class&gt;   <b>[3]</b></pre>
         <ol>
             <li>Name to give to this Object Bucket Claim, for example <em>brownfield-bucket</em>. This same name will be applied to the ConfigMap and Secret that the Cloudian S3 Operator will generate for this OBC and which will be referenced by application pods using this OBC.</li>
             <li>Optionally, the namespace for this OBC. If this is specified it should be the same namespace as will be used by application pods that use this OBC.</li>
@@ -210,15 +210,15 @@ kind: Pod
 metadata:
   name: test-setup-check
 spec:
-containers:
+  containers:
   - name: test-setup-check
-  image: k8s.gcr.io/busybox
-  command: [ "/bin/sh", "-c", "env" ]
-  envFrom:
-  - configMapRef:
-    name: test-setup-check
-  - secretRef:
-    name: test-setup-check
+    image: k8s.gcr.io/busybox
+    command: [ "/bin/sh", "-c", "env" ]
+    envFrom:
+    - configMapRef:
+        name: test-setup-check
+    - secretRef:
+        name: test-setup-check
   restartPolicy: Never</pre>
         <p>Create the resources in your cluster:</p><pre xml:space="preserve">kubectl apply -f test.yaml
 </pre>
